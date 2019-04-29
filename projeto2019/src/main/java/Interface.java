@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public interface Interface {
 	public Grupo criarGrupo(
-			String nomeGrupo, ArrayList<Usuario> usuarios)
+			String nomeGrupo, ArrayList<Grupo> grupos)
 		 	throws GrupoJaExisteException;
 			
 	public Livros adicionarLivro(
