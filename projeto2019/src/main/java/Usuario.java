@@ -7,8 +7,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Usuario {
+public class Usuario extends DAO {
  
+	public Usuario(Class classe) {
+		super(classe);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Id
 	@Column(name="id_usuario")
 	private int idUsu;
@@ -24,7 +29,7 @@ public class Usuario {
 	
 	@OneToMany
 	@JoinColumn(name = "id_Usuario")
-	private Set<Livros> avaliado;
+	private Set<Livro> avaliado;
 
 	
 	public int getIdUsu() {
@@ -75,11 +80,11 @@ public class Usuario {
 		this.avalia = avalia;
 	}
 
-	public Set<Livros> getAvaliado() {
+	public Set<Livro> getAvaliado() {
 		return avaliado;
 	}
 
-	public void setAvaliado(Set<Livros> avaliado) {
+	public void setAvaliado(Set<Livro> avaliado) {
 		this.avaliado = avaliado;
 	}
 

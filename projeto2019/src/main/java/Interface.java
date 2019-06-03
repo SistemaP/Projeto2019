@@ -1,11 +1,8 @@
 import java.util.ArrayList;
 
 public interface Interface {
-	public Grupo criarGrupo(
-			String nomeGrupo, ArrayList<Usuario> usuarios)
-		 	throws GrupoJaExisteException;
 			
-	public Livros adicionarLivro(
+	public Livro adicionarLivro(
 			String nomeLivro)
 			throws LivroJaExisteException;
 	
@@ -17,9 +14,7 @@ public interface Interface {
 			String comentarioAvaliacao,
 			int notaAvaliacao );
 	
-	public Posts adcionarPost(
-			String criarPost, );
+	public Selecionar selecionarLivro(
+			int id);
 	
-			
-
 }

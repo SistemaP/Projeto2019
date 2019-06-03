@@ -7,9 +7,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
-public class Avaliacao {
 
+@Entity
+public class Avaliacao extends DAO {
+
+	public Avaliacao(Class classe) {
+		super(classe);
+		// TODO Auto-generated constructor stub
+	}
 	@Id
 	private Integer id;
 	

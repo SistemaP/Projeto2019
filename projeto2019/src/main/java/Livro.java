@@ -7,26 +7,25 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 
 @Entity 
-public class Livros {
+public class Livro {
 	@Id
 	private int idLiv;
 	private String titulo;
 	private String descricao;
 	private String avaliacoes_de_usuarios;
-	private String quem_ja_leu;
-	private String dialogos;
 	private String site;
+	private String adicionar;
 	@OneToMany
 	@JoinTable(
 
 			name = "livros_paginaPrincipal", joinColumns = @JoinColumn(name = "liv_id"), inverseJoinColumns = @JoinColumn(name = "paginaprincipal_id"))
 
-	private Set<Livros> direciona;
+	private Set<Livro> direciona;
 	
 	@OneToMany
 	
-	@JoinColumn(name = "id_Livros")
-	private Set<PaginaPrincipal> direciona1;
+	@JoinColumn(name = "id_Livro")
+	private Set<Perfil> direciona1;
 
 	public int getIdLiv() {
 		return idLiv;
@@ -62,14 +61,7 @@ public class Livros {
 		this.avaliacoes_de_usuarios = avaliacoes_de_usuarios;
 	}
 
-	public String getQuem_ja_leu() {
-		return quem_ja_leu;
-	}
-
-	public void setQuem_ja_leu(String quem_ja_leu) {
-		this.quem_ja_leu = quem_ja_leu;
-	}
-
+	
 	public String getSite() {
 		return site;
 	}
@@ -78,11 +70,12 @@ public class Livros {
 		this.site = site;
 	}
 
-	public String getDialogos() {
-		return dialogos;
+	public String getAdicionar() {
+		return adicionar;
 	}
 
-	public void setDialogos(String dialogos) {
-		this.dialogos = dialogos;
+	public void setAdicionar(String adicionar) {
+		this.adicionar = adicionar;
 	}
+
 }

@@ -5,58 +5,56 @@ import java.util.ArrayList;
 public class Teste {
 
 	@Test
-	public void criarGrupo() {
+	public void adicionarLivro() {
 
-		Interface grupo =null;
-		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-		Grupo g;
+		Interface livro =null;
+		ArrayList<Livro> livros = new ArrayList<Livro>();
+		Livro l;
 		try {
-			g = grupo.criarGrupo("Teste grupo", usuarios);
-			assertNotNull(g);
-			assertEquals(usuarios, g.getUsuarios());
-		} catch (GrupoJaExisteException e) {
+			
+			livro.AdicionaLivro("Teste Livro", livros);
+			assertNotNull(l);
+			assertEquals(livros, l.getLivro());
+		} catch (LivroJaExisteException e) {
 			fail();
 		}
 	}
+			
 
-	@Test
-		public Grupo adcionaLivro() {
-			
-			Teste livro; 
-			ArrayList<Livros> livros  = new ArrayList<Livros>();
-			Grupo g = livro.AdcionaLivro("Teste livro tal", livros);
-			void assertNotNull(g);
-			assertEquals("Teste livro tal", g.getNomeLivro());			
-			
-}
 
 	@Test
 		public Usuario adcionaUsuario() {
 	
 			Teste usuario; 
 			ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-			Usuario g = usuario.NovoUsuario("iasmim", usuarios);
-			void assertNotNull(g);
-			assertEquals("iasmim", g.getNomeUsuario());
+			Usuario u = usuario.NovoUsuario("iasmim", usuarios);
+			assertNotNull(u);
+			assertEquals("iasmim", u.setNovoUsuario());
 }
+
+	private Usuario NovoUsuario(String string, ArrayList<Usuario> usuarios) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 	@Test
 		public Avaliacao avaliaLivro () {
 			
 			Teste avaliacao; 
 			ArrayList<Avaliacao> avalia  = new ArrayList<Avaliacao>();
-			Grupo g = avaliacao.AvaliaLivro("Teste livro", livros);
-			void assertNotNull(g);
-			assertEquals("Teste livro", g.getNomeAvaliacao());
+			Avaliacao a = avaliacao.AvaliaLivro(" cinco estrelas uau", avalia);
+			assertNotNull(a);
+			assertEquals(" cinco estrelas uau", a.getNomeAvaliacao());
 }
 
-	@Test
-		public Posts adcionaPost() {
-				
-			Teste posts; 
-			ArrayList<Posts> adcionados  = new ArrayList<Posts>();
-			Grupo g = posts.AdcionaPosts("Teste adciona posts", posts);
-			void assertNotNull(g);
-			assertEquals("Teste adciona posts", g.getNomePosts());			
-}
+
+
+	private Avaliacao AvaliaLivro(String string, ArrayList<Avaliacao> avalia) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }
