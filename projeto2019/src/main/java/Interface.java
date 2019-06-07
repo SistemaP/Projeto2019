@@ -16,5 +16,7 @@ public interface Interface {
 	
 	public Selecionar selecionarLivro(
 			int id);
+
+	public void AdicionaLivro(String string, ArrayList<Livro> livros);
 	
 }
