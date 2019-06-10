@@ -20,4 +20,6 @@ public interface Service<E extends Identificavel> {
 
 	Identificavel getByID1(long userId);
 
+	String getNome();
+
 }

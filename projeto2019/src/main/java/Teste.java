@@ -19,24 +19,6 @@ public class Teste {
 			fail();
 		}
 	}
-			
-
-
-	@Test
-		public Usuario adcionaUsuario() {
-	
-			Teste usuario; 
-			ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-			Usuario u = usuario.NovoUsuario("iasmim", usuarios);
-			assertNotNull(u);
-			assertEquals("iasmim", u.setNovoUsuario());
-}
-
-	private Usuario NovoUsuario(String string, ArrayList<Usuario> usuarios) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 
 	@Test

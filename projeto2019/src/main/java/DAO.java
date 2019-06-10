@@ -1,24 +1,21 @@
-import java.util.List;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 
 
 @ApplicationScoped
 public abstract class DAO<E extends Identificavel> {
 
 	@Inject
-	private EntityManager em;
+	private static EntityManager em;
 
-	private Class<E> classe;
+	private Class<Usuario> classe;
 
-	public DAO(Class<E> classe) {
-		this.classe = classe;
+	public DAO(Class<Usuario> class1) {
+		this.classe = class1;
 	}
 
-	public void save(E obj) {
+	public void save(Usuario obj) {
 		if(obj.getId() == null) {
 			em.persist(obj);
 		} else {
@@ -26,24 +23,19 @@ public abstract class DAO<E extends Identificavel> {
 		}
 	}
 
-	public E update(E obj) {
-		E resultado = obj;
-		resultado = em.merge(obj);
+	public static Usuario update(Usuario usuario) {
+		Usuario resultado = usuario;
+		resultado = em.merge(usuario);
 		return resultado;
 	}
 
 	public void remove(Usuario user) {
-		user = getByID(user.getID());
+		user = getByID(user.getId());
 		em.remove(user);
 	}
 
-	public E getByID(Object object) {
+	public Usuario getByID(Object object) {
 		return em.find(classe, object);
-	}
-
-	public List<E> getAll() {
-		Query query = em.createQuery("from " + classe.getSimpleName());
-		return query.getResultList();
 	}
 
 }

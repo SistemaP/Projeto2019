@@ -1,3 +1,5 @@
+package br.edu.ifpb.esperanca.daw2.services;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -5,7 +7,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 @ApplicationScoped
-public class UserService implements Serializable, Service<Identificavel> {
+public class UserService implements Serializable, Service<Usuario> {
 
 	/**
 	 * 
@@ -13,75 +15,61 @@ public class UserService implements Serializable, Service<Identificavel> {
 	private static final long serialVersionUID = -7803325791425670859L;
 	
 	@Inject
-	private Identificavel userDAO;
+	private Usuario userDAO;
+
+	private Usuario update;
 	
 	/* (non-Javadoc)
 	 * @see br.edu.ifpb.esperanca.daw2.services.Service#save(br.edu.ifpb.esperanca.daw2.ifoto.entities.Usuario)
 	 */
 	@Override
 	@TransacionalCdi
-	public void save (Usuario user) {
-		userDAO.save (user);
+	public void save(Usuario user) {
+		userDAO.save(user);
 	}
 
 	/* (non-Javadoc)
 	 * @see br.edu.ifpb.esperanca.daw2.services.Service#update(br.edu.ifpb.esperanca.daw2.ifoto.entities.Usuario, boolean)
 	 */
+	@Override
 	@TransacionalCdi
-	public void update (Usuario user)  {
-			userDAO.update1(user);
+	public void update(Usuario user)  {
+			update = Usuario.update(user);
 	}
 
 	/* (non-Javadoc)
 	 * @see br.edu.ifpb.esperanca.daw2.services.Service#delete(br.edu.ifpb.esperanca.daw2.ifoto.entities.Usuario)
 	 */
-	
+	@Override
 	@TransacionalCdi
 	public void remove(Usuario user) {
-		userDAO.remove1(user);
+		userDAO.remove(user);
 	}
 
 	/* (non-Javadoc)
 	 * @see br.edu.ifpb.esperanca.daw2.services.Service#getByID(long)
 	 */
-	
-	public Identificavel getByID1(long userId)  {
+	@Override
+	public Usuario getByID(long userId)  {
 			return userDAO.getByID(userId);
 	}
 
 	/* (non-Javadoc)
 	 * @see br.edu.ifpb.esperanca.daw2.services.Service#getAll()
 	 */
-	public List<Identificavel> getAll1() {
-			return userDAO.getAll();
+	@Override
+	public String getUsuario() {
+			return Usuario.getUsuario();
 	}
 
 	@Override
-	public void save(Identificavel e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void update(Identificavel e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void remove(Identificavel e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Identificavel getByID(long userId) {
+	public java.awt.List getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public java.awt.List getAll() {
+	public Identificavel getByID1(long userId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

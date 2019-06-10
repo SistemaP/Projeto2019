@@ -9,16 +9,19 @@ import javax.persistence.OneToMany;
 @Entity 
 public class Livro {
 	@Id
-	private int idLiv;
-	private String titulo;
-	private String descricao;
-	private String avaliacoes_de_usuarios;
-	private String site;
-	private String adicionar;
+	private int ISBN;
+	private String nome;
+	private String sinopse;
+	private int nota;
+	private String foto;
+	private String Editora;
+	private String autor;
+	private String ondeEncontrar;
+	
 	@OneToMany
 	@JoinTable(
 
-			name = "livros_paginaPrincipal", joinColumns = @JoinColumn(name = "liv_id"), inverseJoinColumns = @JoinColumn(name = "paginaprincipal_id"))
+			name = "livros_usuario", joinColumns = @JoinColumn(name = "liv_id"), inverseJoinColumns = @JoinColumn(name = "usuario_id"))
 
 	private Set<Livro> direciona;
 	
@@ -27,55 +30,61 @@ public class Livro {
 	@JoinColumn(name = "id_Livro")
 	private Set<Perfil> direciona1;
 
-	public int getIdLiv() {
-		return idLiv;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setId(int idLiv) {
-		this.idLiv = idLiv;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public String getTitulo() {
-		return titulo;
+	public String getSinopse() {
+		return sinopse;
 	}
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public void setSinopse(String sinopse) {
+		this.sinopse = sinopse;
+	}
 
+	public int getNota() {
+		return nota;
+	}
+
+	public void setNota(int nota) {
+		this.nota = nota;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getEditora() {
+		return Editora;
+	}
+
+	public void setEditora(String editora) {
+		Editora = editora;
+	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+
+	public String getOndeEncontrar() {
+		return ondeEncontrar;
+	}
+
+	public void setOndeEncontrar(String ondeEncontrar) {
+		this.ondeEncontrar = ondeEncontrar;
 	}
 
 	
-	public String getDescricao() {
-		return descricao;
-	}
-	
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public String getAvaliacoes_de_usuarios() {
-		return avaliacoes_de_usuarios;
-	}
-
-	public void setAvaliacoes_de_usuarios(String avaliacoes_de_usuarios) {
-		this.avaliacoes_de_usuarios = avaliacoes_de_usuarios;
-	}
-
-	
-	public String getSite() {
-		return site;
-	}
-
-	public void setSite(String site) {
-		this.site = site;
-	}
-
-	public String getAdicionar() {
-		return adicionar;
-	}
-
-	public void setAdicionar(String adicionar) {
-		this.adicionar = adicionar;
-	}
-
 }

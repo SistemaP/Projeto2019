@@ -1,13 +1,23 @@
+import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
+@Entity
 public class GeneroLit extends DAO {
 	
-	public GeneroLit(Class classe) {
+	@SuppressWarnings("unchecked")
+	public GeneroLit(Class<GeneroLit> classe) {
 		super(classe);
 		// TODO Auto-generated constructor stub
 	}
-
+	@Id
+	private int IdGen;
+	
 	private String nome;
-
+	
 	public String getNome() {
 		return nome;
 	}
@@ -15,5 +25,22 @@ public class GeneroLit extends DAO {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	public int getIdGen() {
+		return IdGen;
+	}
+
+	public void setIdGen(int idGen) {
+		IdGen = idGen;
+	}
 	
-}
+	@OneToMany(mappedBy="livro")
+	private Set<Livro> pertence;
+	
+	@OneToMany
+	@JoinColumn(name = "id_Livro")
+	private Set<Livro> possui;
+	
+	}
+	
+
