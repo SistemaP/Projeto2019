@@ -32,9 +32,9 @@ public abstract class DAO<E extends Identificavel> {
 		return resultado;
 	}
 
-	public void remove(E obj) {
-		obj = getByID(obj.getId());
-		em.remove(obj);
+	public void remove(Usuario user) {
+		user = getByID(user.getID());
+		em.remove(user);
 	}
 
 	public E getByID(Object object) {
