@@ -88,6 +88,11 @@ public class Usuario extends DAO {
 		this.avaliado = avaliado;
 	}
 
+	public Object getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	
 }
