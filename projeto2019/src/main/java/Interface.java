@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public interface Interface {
 			
 	public Livro adicionarLivro(
@@ -11,5 +13,7 @@ public interface Interface {
 	public Usuario adicionarUsuario(
 			String loginUsuario)
 	        throws UsuarioJaExisteException;
+
+	public void AdicionaLivro(String string, ArrayList<Livro> livros);
 	
 }

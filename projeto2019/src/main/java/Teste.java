@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Teste {
 
+	private Teste avaliacao;
+
 	@Test
 	public void adicionarLivro() {
 
@@ -14,23 +16,23 @@ public class Teste {
 			
 			livro.AdicionaLivro("Teste Livro", livros);
 			assertNotNull(l);
-			assertEquals(livros, l.getLivro());
+			assertEquals(livros, l.getLivros());
 		} catch (LivroJaExisteException e) {
 			fail();
 		}
-	}
+}
 
 
 	@Test
 		public Avaliacao avaliaLivro () {
 			
-			Teste avaliacao; 
+			avaliacao = null; 
 			ArrayList<Avaliacao> avalia  = new ArrayList<Avaliacao>();
 			Avaliacao a = avaliacao.AvaliaLivro(" cinco estrelas uau", avalia);
 			assertNotNull(a);
-			assertEquals(" cinco estrelas uau", a.getNomeAvaliacao());
+			assertEquals(" cinco estrelas uau", a.getAvaliacao());
+			return a;
 }
-
 
 
 	private Avaliacao AvaliaLivro(String string, ArrayList<Avaliacao> avalia) {
@@ -38,5 +40,35 @@ public class Teste {
 		return null;
 	}
 
+
+	@Test
+	public GeneroLit adcionaGeneroLit () {
+		
+		Teste GeneroLit; 
+		ArrayList<GeneroLit> adiciona  = new ArrayList<GeneroLit>();
+		GeneroLit g = adiciona.adicionaGeneroLit(" romance ", adiciona);
+		assertNotNull(g);
+		assertEquals(" romance", g.getNomeGeneroLit());
+	}
 	
+
+	@Test
+	public GeneroLit adicionaPerfil () {
+		
+		Teste Perfil; 
+		ArrayList<Perfil> adiciona  = new ArrayList<Perfil>();
+		Perfil p = adiciona.adicionaPerfil(" iasmim ", adiciona);
+		assertNotNull(p);
+		assertEquals(" iasmim", p.getNomePerfil());
+	}
+	
+	@Test
+	public GeneroLit adicionaUsuario () {
+		
+		Teste Usuario; 
+		ArrayList<Usuario> adiciona  = new ArrayList<Usuario>();
+		Usuario u = adiciona.adicionaUsuario(" iasmim ", adiciona);
+		assertNotNull(u);
+		assertEquals(" iasmim", u.getNomeUsuario());
+	}
 }
