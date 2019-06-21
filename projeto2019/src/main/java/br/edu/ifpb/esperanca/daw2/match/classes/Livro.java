@@ -1,3 +1,5 @@
+package br.edu.ifpb.esperanca.daw2.match.classes;
+
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -28,7 +30,7 @@ public class Livro {
 	@OneToMany
 	
 	@JoinColumn(name = "id_Livro")
-	private Set<Perfil> direciona1;
+	private Set<Usuario> direciona1;
 
 	public String getNome() {
 		return nome;

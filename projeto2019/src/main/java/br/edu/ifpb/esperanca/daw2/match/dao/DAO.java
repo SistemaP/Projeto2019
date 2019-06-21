@@ -1,6 +1,11 @@
+package br.edu.ifpb.esperanca.daw2.match.dao;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+
+import br.edu.ifpb.esperanca.daw2.match.classes.Identificavel;
+import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
 
 
 @ApplicationScoped

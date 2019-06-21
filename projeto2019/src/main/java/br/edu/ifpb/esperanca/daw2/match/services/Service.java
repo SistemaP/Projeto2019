@@ -1,4 +1,9 @@
+package br.edu.ifpb.esperanca.daw2.match.services;
+
 import java.awt.List;
+
+import br.edu.ifpb.esperanca.daw2.match.classes.Identificavel;
+import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
 
 public interface Service<E extends Identificavel> {
 
@@ -21,5 +26,7 @@ public interface Service<E extends Identificavel> {
 	Identificavel getByID1(long userId);
 
 	String getNome();
+
+	String getUsuario();
 
 }
