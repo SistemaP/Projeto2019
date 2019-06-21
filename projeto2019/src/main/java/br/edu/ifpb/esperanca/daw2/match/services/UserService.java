@@ -1,6 +1,7 @@
 package br.edu.ifpb.esperanca.daw2.match.services;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

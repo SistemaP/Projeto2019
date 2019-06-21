@@ -106,6 +106,11 @@ public class Usuario extends Identificavel {
 			// TODO Auto-generated method stub
 			return null;
 		}
+
+		public void setId(Long id) {
+			// TODO Auto-generated method stub
+			
+		}
 	
 
 }
