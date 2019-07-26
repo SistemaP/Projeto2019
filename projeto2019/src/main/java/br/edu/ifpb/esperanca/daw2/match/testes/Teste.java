@@ -1,7 +1,18 @@
 package br.edu.ifpb.esperanca.daw2.match.testes;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+
+import br.edu.ifpb.esperanca.daw2.match.classes.Avaliacao;
+import br.edu.ifpb.esperanca.daw2.match.classes.GeneroLit;
+import br.edu.ifpb.esperanca.daw2.match.classes.Interface;
+import br.edu.ifpb.esperanca.daw2.match.classes.Livro;
+import br.edu.ifpb.esperanca.daw2.match.classes.LivroJaExisteException;
+import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
 
 	public class Teste {
 
