@@ -43,6 +43,26 @@ package br.edu.ifpb.esperanca.daw2.match.classes;
 		@OneToMany
 		@JoinColumn(name = "id_Livro")
 		private Set<Livro> possui;
+
+		public void save(GeneroLit gen) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public static GeneroLit update(GeneroLit gen) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		public void remove(GeneroLit gen) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public GeneroLit getByID(long genId) {
+			// TODO Auto-generated method stub
+			return null;
+		}
 		
 		}
 

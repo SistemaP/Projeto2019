@@ -23,16 +23,10 @@ public class Usuario extends Identificavel {
 		private String email;
 		private String foto;
 		
-
-		@OneToMany(mappedBy="livro")
-		private Set<Livro> avalia;
 		
 		@OneToMany
-		@JoinColumn(name = "id_Usuario")
+		@JoinColumn(name = "id_livro")
 		private Set<Livro> avaliado;
-
-		@OneToMany(mappedBy="generoLit")
-		private Set<GeneroLit> seleciona;
 		
 		@OneToMany
 		@JoinColumn(name = "id_Gen")
@@ -110,6 +104,11 @@ public class Usuario extends Identificavel {
 		public void setId(Long id) {
 			// TODO Auto-generated method stub
 			
+		}
+
+		public static String getNovoGenero() {
+			// TODO Auto-generated method stub
+			return null;
 		}
 	
 

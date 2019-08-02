@@ -29,4 +29,10 @@ public interface Service<E extends Identificavel> {
 
 	String getUsuario();
 
+	String getGeneroLit();
+
+	String getAvaliacao();
+
+	String getLivro();
+
 }

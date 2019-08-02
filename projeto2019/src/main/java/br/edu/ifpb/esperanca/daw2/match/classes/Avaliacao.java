@@ -34,4 +34,29 @@ public class Avaliacao {
 	public void setNota(int nota) {
 		this.nota = nota;
 	}
+
+	public void save(Avaliacao ava) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static Avaliacao update(Avaliacao ava) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void remove(Avaliacao ava) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Avaliacao getByID(long avaId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static String getNovoUsuario() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

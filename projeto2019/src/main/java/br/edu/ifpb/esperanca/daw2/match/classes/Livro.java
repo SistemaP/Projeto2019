@@ -87,5 +87,30 @@ public class Livro {
 	public void setOndeEncontrar(String ondeEncontrar) {
 		this.ondeEncontrar = ondeEncontrar;
 	}
+
+	public void save(Livro liv) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static Livro update(Livro liv) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void remove(Livro liv) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Livro getByID(long livId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static String getNovoLivro() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
