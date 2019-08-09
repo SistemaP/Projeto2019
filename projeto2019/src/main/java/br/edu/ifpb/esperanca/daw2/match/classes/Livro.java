@@ -2,115 +2,98 @@ package br.edu.ifpb.esperanca.daw2.match.classes;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity 
 public class Livro {
-	@Id
-	private int ISBN;
-	private String nome;
-	private String sinopse;
-	private int nota;
-	private String foto;
-	private String Editora;
-	private String autor;
-	private String ondeEncontrar;
-	
-	@OneToMany
-	@JoinTable(
+@Id
+@Column(name="id_livro")
+private int ISBN;
+private String nome;
+private String sinopse;
+private int nota;
+private String foto;
+private String Editora;
+private String autor;
+private String ondeEncontrar;
 
-			name = "livros_usuario", joinColumns = @JoinColumn(name = "liv_id"), inverseJoinColumns = @JoinColumn(name = "usuario_id"))
+public String getNome() {
+return nome;
+}
 
-	private Set<Livro> direciona;
-	
-	@OneToMany
-	
-	@JoinColumn(name = "id_Livro")
-	private Set<Usuario> direciona1;
+public void setNome(String nome) {
+this.nome = nome;
+}
 
-	public String getNome() {
-		return nome;
-	}
+public String getSinopse() {
+return sinopse;
+}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+public void setSinopse(String sinopse) {
+this.sinopse = sinopse;
+}
 
-	public String getSinopse() {
-		return sinopse;
-	}
+public int getNota() {
+return nota;
+}
 
-	public void setSinopse(String sinopse) {
-		this.sinopse = sinopse;
-	}
+public void setNota(int nota) {
+this.nota = nota;
+}
 
-	public int getNota() {
-		return nota;
-	}
+public String getFoto() {
+return foto;
+}
 
-	public void setNota(int nota) {
-		this.nota = nota;
-	}
+public void setFoto(String foto) {
+this.foto = foto;
+}
 
-	public String getFoto() {
-		return foto;
-	}
+public String getEditora() {
+return Editora;
+}
 
-	public void setFoto(String foto) {
-		this.foto = foto;
-	}
+public void setEditora(String editora) {
+Editora = editora;
+}
 
-	public String getEditora() {
-		return Editora;
-	}
+public String getAutor() {
+return autor;
+}
 
-	public void setEditora(String editora) {
-		Editora = editora;
-	}
+public void setAutor(String autor) {
+this.autor = autor;
+}
 
-	public String getAutor() {
-		return autor;
-	}
+public String getOndeEncontrar() {
+return ondeEncontrar;
+}
 
-	public void setAutor(String autor) {
-		this.autor = autor;
-	}
+public void setOndeEncontrar(String ondeEncontrar) {
+this.ondeEncontrar = ondeEncontrar;
+}
 
-	public String getOndeEncontrar() {
-		return ondeEncontrar;
-	}
 
-	public void setOndeEncontrar(String ondeEncontrar) {
-		this.ondeEncontrar = ondeEncontrar;
-	}
+public static Livro update(Livro liv) {
+// TODO Auto-generated method stub
+return null;
+}
 
-	public void save(Livro liv) {
-		// TODO Auto-generated method stub
-		
-	}
+public void remove(Livro liv) {
+// TODO Auto-generated method stub
 
-	public static Livro update(Livro liv) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+}
 
-	public void remove(Livro liv) {
-		// TODO Auto-generated method stub
-		
-	}
+public Livro getByID(long livId) {
+// TODO Auto-generated method stub
+return null;
+}
 
-	public Livro getByID(long livId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	public static String getNovoLivro() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 }

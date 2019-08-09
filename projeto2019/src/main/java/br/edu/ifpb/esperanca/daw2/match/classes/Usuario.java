@@ -1,115 +1,125 @@
 package br.edu.ifpb.esperanca.daw2.match.classes;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 public class Usuario extends Identificavel {
  
-		  public Usuario() {
-	              super(Usuario.class);
-	      // TODO Auto-generated constructor stub
-	     	
-	}
-		@Id
-		@Column(name="id_usuario")
-		private int IdUsu;
-		private String nome;
-		private String biografia;
-		private String email;
-		private String foto;
-		
-		
-		@OneToMany
-		@JoinColumn(name = "id_livro")
-		private Set<Livro> avaliado;
-		
-		@OneToMany
-		@JoinColumn(name = "id_Gen")
-		private Set<GeneroLit> selecionado;
-		
-		public int getIdUsu() {
-			return IdUsu;
-		}
+ public Usuario() {
+             super(Usuario.class);
+     // TODO Auto-generated constructor stub
+    
+}
+@Id
+@Column(name="id_usuario")
+private int IdUsu;
+private String nome;
+private String biografia;
+private String email;
+private String foto;
 
-		public void setIdUsu( int IdUsu) {
-			this.IdUsu = IdUsu ;
-		}
-		
-		public String getNome() {
-			return nome;
-		}
 
-		public void setNome(String nome) {
-			this.nome = nome;
-		}
+@ManyToMany
+@JoinTable(name="usuario_generolit", joinColumns=@JoinColumn(name="id_generolit"), inverseJoinColumns=@JoinColumn(name="id_usuario"))
+private Set<GeneroLit> generos;
 
-		public String getBiografia() {
-			return biografia;
-		}
+@OneToMany(mappedBy="livro")
+private Set<Livro> adiciona;
 
-		public void setBiografia(String biografia) {
-			this.biografia = biografia;
-		}
+@OneToMany
+@JoinColumn(name = "id_livro")
+private Set<Livro> avaliado;
 
-		public String getEmail() {
-			return email;
-		}
+@OneToMany
+@JoinColumn(name = "id_Gen")
+private Set<GeneroLit> selecionado;
 
-		public void setEmail(String email) {
-			this.email = email;
-		}
-		public String getFoto() {
-			return foto;
-		}
+public int getIdUsu() {
+return IdUsu;
+}
 
-		public void setFoto(String foto) {
-			this.foto = foto;
-		}
-		
-		public Object getId() {
-			// TODO Auto-generated method stub
-			return null;
-		}
+public void setIdUsu( int IdUsu) {
+this.IdUsu = IdUsu ;
+}
 
-		public static Object getNovoUsuario() {
-			// TODO Auto-generated method stub
-			return null;
-		}
+public String getNome() {
+return nome;
+}
 
-		public List<Usuario> getAll() {
-			// TODO Auto-generated method stub
-			return null;
-		}
+public void setNome(String nome) {
+this.nome = nome;
+}
 
-		public void remove(Usuario user) {
-			// TODO Auto-generated method stub
-			
-		}
+public String getBiografia() {
+return biografia;
+}
 
-		public static Usuario update(Usuario user) {
-			// TODO Auto-generated method stub
-			return null;
-		}
+public void setBiografia(String biografia) {
+this.biografia = biografia;
+}
 
-		public Usuario getByID(long userId) {
-			// TODO Auto-generated method stub
-			return null;
-		}
+public String getEmail() {
+return email;
+}
 
-		public void setId(Long id) {
-			// TODO Auto-generated method stub
-			
-		}
+public void setEmail(String email) {
+this.email = email;
+}
+public String getFoto() {
+return foto;
+}
 
-		public static String getNovoGenero() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-	
+public void setFoto(String foto) {
+this.foto = foto;
+}
+
+public Object getId() {
+// TODO Auto-generated method stub
+return null;
+}
+
+public static Object getNovoUsuario() {
+// TODO Auto-generated method stub
+return null;
+}
+
+public List<Usuario> getAll() {
+// TODO Auto-generated method stub
+return null;
+}
+
+public void remove(Usuario user) {
+// TODO Auto-generated method stub
+
+}
+
+public static Usuario update(Usuario user) {
+// TODO Auto-generated method stub
+return null;
+}
+
+public Usuario getByID(long userId) {
+// TODO Auto-generated method stub
+return null;
+}
+
+public void setId(Long id) {
+// TODO Auto-generated method stub
+
+}
+
+public static String getNovoGenero() {
+// TODO Auto-generated method stub
+return null;
+}
+
 
 }
