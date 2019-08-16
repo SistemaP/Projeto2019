@@ -95,5 +95,20 @@ public Livro getByID(long livId) {
 return null;
 }
 
+public void setId(Long id) {
+	// TODO Auto-generated method stub
+	
+}
+
+public Object getLivros() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+public Object getUsuario() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
 
 }

@@ -6,8 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import br.edu.ifpb.esperanca.daw2.match.classes.Genero;
+import br.edu.ifpb.esperanca.daw2.match.classes.GeneroLit;
 import br.edu.ifpb.esperanca.daw2.match.services.GenService;
 
 	@ViewScoped
@@ -17,9 +16,9 @@ import br.edu.ifpb.esperanca.daw2.match.services.GenService;
 		@Inject
 		private GenService service;
 
-		protected Genero entidade;
+		protected GeneroLit entidade;
 
-		protected Collection<Genero> entidades;
+		protected Collection<GeneroLit> entidades;
 
 		public GeneroBean() {
 		}
@@ -27,26 +26,26 @@ import br.edu.ifpb.esperanca.daw2.match.services.GenService;
 		@PostConstruct
 		public void init() {
 			entidade = newEntidade();
-			entidades = (Collection<Genero>) getService().getAll();
+			entidades = (Collection<GeneroLit>) getService().getAll();
 		}
 
-		public void remove(Genero entidade) {
+		public void remove(GeneroLit entidade) {
 			getService().remove(entidade);
 		}
 
-		public Genero getEntidade() {
+		public GeneroLit getEntidade() {
 			return entidade;
 		}
 
-		public void setEntidade(Genero entidade) {
+		public void setEntidade(GeneroLit entidade) {
 			this.entidade = entidade;
 		}
 
-		public Collection<Genero> getEntidades() {
+		public Collection<GeneroLit> getEntidades() {
 			return entidades;
 		}
 
-		public void setEntidades(Collection<Genero> entidades) {
+		public void setEntidades(Collection<GeneroLit> entidades) {
 			this.entidades = entidades;
 		}
 
@@ -60,8 +59,8 @@ import br.edu.ifpb.esperanca.daw2.match.services.GenService;
 		}
 
 
-		protected Genero newEntidade() {
-			return new Genero();
+		protected GeneroLit newEntidade() {
+			return new GeneroLit(null);
 		}
 
 		public GenService getService() {

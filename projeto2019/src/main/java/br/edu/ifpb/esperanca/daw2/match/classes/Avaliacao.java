@@ -100,4 +100,19 @@ public static String getNovoUsuario() {
 // TODO Auto-generated method stub
 return null;
 }
+
+public void setId(Long id) {
+	// TODO Auto-generated method stub
+	
+}
+
+public Object getId() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+public void setNome(String string) {
+	// TODO Auto-generated method stub
+	
+}
 }

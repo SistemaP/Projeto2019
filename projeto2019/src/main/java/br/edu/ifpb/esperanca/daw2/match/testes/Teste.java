@@ -13,23 +13,24 @@ import br.edu.ifpb.esperanca.daw2.match.classes.Interface;
 import br.edu.ifpb.esperanca.daw2.match.classes.Livro;
 import br.edu.ifpb.esperanca.daw2.match.classes.LivroJaExisteException;
 import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
+import br.edu.ifpb.esperanca.daw2.match.classes.UsuarioJaExistenceException;
 
 	public class Teste {
 
 		private Teste avaliacao;
 
 		@Test
-		public void adicionarLivro() {
+		public void adicionarUsuario() {
 
-			Interface livro =null;
-			ArrayList<Livro> livros = new ArrayList<Livro>();
+			Interface usuario =null;
+			ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 			Livro l;
 			try {
 				
-				livro.AdicionaLivro("Teste Livro", livros);
+				usuario.AdicionarUsuario("Teste Usuario", usuarios);
 				assertNotNull(l);
-				assertEquals(livros, l.getLivros());
-			} catch (LivroJaExisteException e) {
+				assertEquals(usuarios, l.getUsuario());
+			} catch (UsuarioJaExistenceException e) {
 				fail();
 			}
 	}
@@ -54,25 +55,16 @@ import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
 
 
 		@Test
-		public GeneroLit adcionaGeneroLit () {
+		public GeneroLit adicionaGeneroLit () {
 			
 			Teste GeneroLit; 
 			ArrayList<GeneroLit> adiciona  = new ArrayList<GeneroLit>();
 			GeneroLit g = adiciona.adicionaGeneroLit(" romance ", adiciona);
 			assertNotNull(g);
-			assertEquals(" romance", g.getNomeGeneroLit());
+			assertEquals("romance", g.getNomeGeneroLit());
 		}
 		
 
-		@Test
-		public GeneroLit adicionaPerfil () {
-			
-			Teste Perfil; 
-			ArrayList<Perfil> adiciona  = new ArrayList<Perfil>();
-			Perfil p = adiciona.adicionaPerfil(" iasmim ", adiciona);
-			assertNotNull(p);
-			assertEquals(" iasmim", p.getNomePerfil());
-		}
 		
 		@Test
 		public GeneroLit adicionaUsuario () {
@@ -81,7 +73,7 @@ import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
 			ArrayList<Usuario> adiciona  = new ArrayList<Usuario>();
 			Usuario u = adiciona.adicionaUsuario(" iasmim ", adiciona);
 			assertNotNull(u);
-			assertEquals(" iasmim", u.getNomeUsuario());
+			assertEquals("iasmim"), u.getNome());
 		}
 	}
 

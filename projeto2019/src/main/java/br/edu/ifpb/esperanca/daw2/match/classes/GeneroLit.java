@@ -87,6 +87,11 @@ public Object getNomeGeneroLit() {
 return null;
 }
 
+public void setId(Long id) {
+	// TODO Auto-generated method stub
+	
+}
+
 
 }
 
