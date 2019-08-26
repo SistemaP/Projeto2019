@@ -1,27 +1,28 @@
 package br.edu.ifpb.esperanca.daw2.match.dao;
 
+import java.util.List;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
-import br.edu.ifpb.esperanca.daw2.match.classes.Avaliacao;
 import br.edu.ifpb.esperanca.daw2.match.classes.Identificavel;
-import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
 
 
 @ApplicationScoped
 public abstract class DAO<E extends Identificavel> {
 
 	@Inject
-	private static EntityManager em;
+	private EntityManager em;
 
-	private Class<Avaliacao> classe;
+	private Class<E> classe;
 
-	public DAO(Class<Avaliacao> class1) {
-		this.classe = class1;
+	public DAO(Class<E> classe) {
+		this.classe = classe;
 	}
 
-	public void save(Usuario obj) {
+	public void save(E obj) {
 		if(obj.getId() == null) {
 			em.persist(obj);
 		} else {
@@ -29,19 +30,24 @@ public abstract class DAO<E extends Identificavel> {
 		}
 	}
 
-	public static Usuario update(Usuario usuario) {
-		Usuario resultado = usuario;
-		resultado = em.merge(usuario);
+	public E update(E obj) {
+		E resultado = obj;
+		resultado = em.merge(obj);
 		return resultado;
 	}
 
-	public void remove(Avaliacao user) {
-		user = getByID(user.getId());
-		em.remove(user);
+	public void remove(E obj) {
+		obj = getByID(obj.getId());
+		em.remove(obj);
 	}
 
-	public Avaliacao getByID(Object object) {
-		return em.find(classe, object);
+	public E getByID(Long objId) {
+		return em.find(classe, objId);
+	}
+
+	public List<E> getAll() {
+		Query query = em.createQuery("from " + classe.getSimpleName());
+		return query.getResultList();
 	}
 
 }

@@ -2,16 +2,12 @@ package br.edu.ifpb.esperanca.daw2.match.dao;
 
 import java.util.List;
 
-public class LivroDAO extends DAO<LivroDAO> {
+import br.edu.ifpb.esperanca.daw2.match.classes.Livro;
+
+public class LivroDAO extends DAO<Livro> {
 	
 	public LivroDAO() {
-		super(LivroDAO.class);
+		super(Livro.class);
 	}
 
-	public List<LivroDAO> findBy(LivroDAO filtro) {
-		return null;
-	} {
-	
-
-}
 }

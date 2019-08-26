@@ -1,7 +1,5 @@
 package br.edu.ifpb.esperanca.daw2.match.classes;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -11,115 +9,94 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
-public class Usuario extends Identificavel {
- 
- public Usuario() {
-             super(Usuario.class);
-     // TODO Auto-generated constructor stub
-    
-}
-@Id
-@Column(name="id_usuario")
-private int IdUsu;
-private String nome;
-private String biografia;
-private String email;
-private String foto;
+public class Usuario implements Identificavel {
 
+	@Id
+	@Column(name = "id_usuario")
+	private Long id;
+	private String nome;
+	private String biografia;
+	private String email;
+	private String foto;
 
-@ManyToMany
-@JoinTable(name="usuario_generolit", joinColumns=@JoinColumn(name="id_generolit"), inverseJoinColumns=@JoinColumn(name="id_usuario"))
-private Set<GeneroLit> generos;
+	@ManyToMany
+	@JoinTable(name = "usuario_generolit", joinColumns = @JoinColumn(name = "id_generolit"), inverseJoinColumns = @JoinColumn(name = "id_usuario"))
+	private Set<GeneroLit> generos;
 
-@OneToMany(mappedBy="livro")
-private Set<Livro> adiciona;
+	@OneToMany(mappedBy = "livro")
+	private Set<Livro> adiciona;
 
-@OneToMany
-@JoinColumn(name = "id_livro")
-private Set<Livro> avaliado;
+	@OneToMany
+	@JoinColumn(name = "id_livro")
+	private Set<Livro> avaliado;
 
-@OneToMany
-@JoinColumn(name = "id_Gen")
-private Set<GeneroLit> selecionado;
+	@OneToMany
+	@JoinColumn(name = "id_Gen")
+	private Set<GeneroLit> selecionado;
 
-public int getIdUsu() {
-return IdUsu;
-}
+	public Long getId() {
+		return id;
+	}
 
-public void setIdUsu( int IdUsu) {
-this.IdUsu = IdUsu ;
-}
+	public void setId(Long IdUsu) {
+		this.id = IdUsu;
+	}
 
-public String getNome() {
-return nome;
-}
+	public String getNome() {
+		return nome;
+	}
 
-public void setNome(String nome) {
-this.nome = nome;
-}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-public String getBiografia() {
-return biografia;
-}
+	public String getBiografia() {
+		return biografia;
+	}
 
-public void setBiografia(String biografia) {
-this.biografia = biografia;
-}
+	public void setBiografia(String biografia) {
+		this.biografia = biografia;
+	}
 
-public String getEmail() {
-return email;
-}
+	public String getEmail() {
+		return email;
+	}
 
-public void setEmail(String email) {
-this.email = email;
-}
-public String getFoto() {
-return foto;
-}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-public void setFoto(String foto) {
-this.foto = foto;
-}
+	public String getFoto() {
+		return foto;
+	}
 
-public Object getId() {
-// TODO Auto-generated method stub
-return null;
-}
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
 
-public static Object getNovoUsuario() {
-// TODO Auto-generated method stub
-return null;
-}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
 
-public List<Usuario> getAll() {
-// TODO Auto-generated method stub
-return null;
-}
-
-public void remove(Usuario user) {
-// TODO Auto-generated method stub
-
-}
-
-public static Usuario update(Usuario user) {
-// TODO Auto-generated method stub
-return null;
-}
-
-public Usuario getByID(long userId) {
-// TODO Auto-generated method stub
-return null;
-}
-
-public void setId(Long id) {
-// TODO Auto-generated method stub
-
-}
-
-public static String getNovoGenero() {
-// TODO Auto-generated method stub
-return null;
-}
-
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
 
 }

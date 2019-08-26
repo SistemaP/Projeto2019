@@ -13,85 +13,60 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+	@Entity
+	public class GeneroLit implements Identificavel {
 
-@Entity
-public class GeneroLit {
+		@Id
+		@Column(name="id_gen")
+		private Long id;
+		private String nome;
 
-@SuppressWarnings("unchecked")
-public GeneroLit(Class<GeneroLit> classe) {
-super();
-// TODO Auto-generated constructor stub
-}
-@Id
-@Column(name="id_generolit")
-private int IdGen;
+		public String getNome() {
+			return nome;
+		}
 
-private String nome;
+		public void setNome(String nome) {
+			this.nome = nome;
+		}
 
-public String getNome() {
-return nome;
-}
+		public Long getId() {
+			return id;
+		}
 
-public void setNome(String nome) {
-this.nome = nome;
-}
+		public void setId(Long id_gen) {
+			this.id = id_gen;
+		}
 
-public int getIdGen() {
-return IdGen;
-}
-
-public void setIdGen(int idGen) {
-IdGen = idGen;
-}
-
-
-@ManyToMany
-@JoinTable(name="generolit_livro", joinColumns=@JoinColumn(name="id_livro"), inverseJoinColumns=@JoinColumn(name="id_generolit"))
-private Set<GeneroLit> generos;
-
-public GeneroLit adicionaGeneroLit(String string, ArrayList<GeneroLit> adiciona) {
-// TODO Auto-generated method stub
-return null;
-}
-
-@OneToMany(mappedBy="livro")
-private Set<Livro> pertence;
-
-@OneToMany
-@JoinColumn(name = "id_Livro")
-private Set<Livro> possui;
-
-public void save(GeneroLit gen) {
-// TODO Auto-generated method stub
-
-}
-
-public static GeneroLit update(GeneroLit gen) {
-// TODO Auto-generated method stub
-return null;
-}
-
-public void remove(GeneroLit gen) {
-// TODO Auto-generated method stub
-
-}
-
-public GeneroLit getByID(long genId) {
-// TODO Auto-generated method stub
-return null;
-}
-
-
-public Object getNomeGeneroLit() {
-// TODO Auto-generated method stub
-return null;
-}
-
-public void setId(Long id) {
-	// TODO Auto-generated method stub
 	
-}
+	
+	@ManyToMany
+	@JoinTable(name="generolit_livro", joinColumns=@JoinColumn(name="id_livro"), inverseJoinColumns=@JoinColumn(name="id_generolit"))
+	private Set<GeneroLit> generos;
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		GeneroLit other = (GeneroLit) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
 
 }
 

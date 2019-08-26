@@ -9,8 +9,4 @@ import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
 		public UsuarioDAO() {
 			super(Usuario.class);
 		}
-
-		public List<Usuario> findBy(Usuario filtro) {
-			return null;
-		}
 }

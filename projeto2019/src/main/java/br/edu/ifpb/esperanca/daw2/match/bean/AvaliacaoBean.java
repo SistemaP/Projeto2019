@@ -2,6 +2,7 @@ package br.edu.ifpb.esperanca.daw2.match.bean;
 
 import java.io.Serializable;
 import java.util.Collection;
+
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;

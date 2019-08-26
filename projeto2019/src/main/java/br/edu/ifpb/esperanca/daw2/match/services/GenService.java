@@ -7,6 +7,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import br.edu.ifpb.esperanca.daw2.match.classes.Identificavel;
+import br.edu.ifpb.esperanca.daw2.match.classes.Avaliacao;
 import br.edu.ifpb.esperanca.daw2.match.classes.GeneroLit;
 
 	@ApplicationScoped
@@ -19,8 +20,6 @@ import br.edu.ifpb.esperanca.daw2.match.classes.GeneroLit;
 		
 		@Inject
 		private GeneroLit genDAO;
-
-		private GeneroLit update;
 		
 		/* (non-Javadoc)
 		 * @see br.edu.ifpb.esperanca.daw2.services.Service#save(br.edu.ifpb.esperanca.daw2.ifoto.entities.Usuario)
@@ -37,7 +36,7 @@ import br.edu.ifpb.esperanca.daw2.match.classes.GeneroLit;
 		@Override
 		@TransacionalCdi
 		public void update(GeneroLit gen)  {
-				update = GeneroLit.update (gen);
+				genDAO.update(gen);
 		}
 
 		/* (non-Javadoc)
@@ -58,22 +57,14 @@ import br.edu.ifpb.esperanca.daw2.match.classes.GeneroLit;
 		}
 
 		/* (non-Javadoc)
+		 * 
 		 * @see br.edu.ifpb.esperanca.daw2.services.Service#getAll()
 		 */
+		
 		@Override
-		public String getGeneroLit() {
-				return (String) GeneroLit.getNovoGenero();
+		public List<GeneroLit> getAll() {
+			return genDAO.getAll();
 		}
+	}
+		
 
-		@Override
-		public java.awt.List getAll() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public Identificavel getByID1(long genId) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-}

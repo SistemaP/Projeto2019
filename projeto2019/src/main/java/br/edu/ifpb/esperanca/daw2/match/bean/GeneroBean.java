@@ -60,7 +60,7 @@ import br.edu.ifpb.esperanca.daw2.match.services.GenService;
 
 
 		protected GeneroLit newEntidade() {
-			return new GeneroLit(null);
+			return new GeneroLit();
 		}
 
 		public GenService getService() {

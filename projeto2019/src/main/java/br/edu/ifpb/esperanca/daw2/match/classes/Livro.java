@@ -10,105 +10,120 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
-@Entity 
-public class Livro {
-@Id
-@Column(name="id_livro")
-private int ISBN;
-private String nome;
-private String sinopse;
-private int nota;
-private String foto;
-private String Editora;
-private String autor;
-private String ondeEncontrar;
-
-public String getNome() {
-return nome;
-}
-
-public void setNome(String nome) {
-this.nome = nome;
-}
-
-public String getSinopse() {
-return sinopse;
-}
-
-public void setSinopse(String sinopse) {
-this.sinopse = sinopse;
-}
-
-public int getNota() {
-return nota;
-}
-
-public void setNota(int nota) {
-this.nota = nota;
-}
-
-public String getFoto() {
-return foto;
-}
-
-public void setFoto(String foto) {
-this.foto = foto;
-}
-
-public String getEditora() {
-return Editora;
-}
-
-public void setEditora(String editora) {
-Editora = editora;
-}
-
-public String getAutor() {
-return autor;
-}
-
-public void setAutor(String autor) {
-this.autor = autor;
-}
-
-public String getOndeEncontrar() {
-return ondeEncontrar;
-}
-
-public void setOndeEncontrar(String ondeEncontrar) {
-this.ondeEncontrar = ondeEncontrar;
-}
-
-
-public static Livro update(Livro liv) {
-// TODO Auto-generated method stub
-return null;
-}
-
-public void remove(Livro liv) {
-// TODO Auto-generated method stub
-
-}
-
-public Livro getByID(long livId) {
-// TODO Auto-generated method stub
-return null;
-}
-
-public void setId(Long id) {
-	// TODO Auto-generated method stub
+@Entity
+public class Livro implements Identificavel {
 	
-}
+	@Id
+	@Column(name = "id_livro")
+	private Long id;
+	private int ISBN;
+	private String nome;
+	private String sinopse;
+	private int nota;
+	private String foto;
+	private String Editora;
+	private String autor;
+	private String ondeEncontrar;
+	
+	@OneToMany
+	@JoinColumn(name = "id_Livro")
+	private Set<Livro> possui;
 
-public Object getLivros() {
-	// TODO Auto-generated method stub
-	return null;
-}
+	public String getNome() {
+		return nome;
+	}
 
-public Object getUsuario() {
-	// TODO Auto-generated method stub
-	return null;
-}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
+	public String getSinopse() {
+		return sinopse;
+	}
+
+	public void setSinopse(String sinopse) {
+		this.sinopse = sinopse;
+	}
+
+	public int getNota() {
+		return nota;
+	}
+
+	public void setNota(int nota) {
+		this.nota = nota;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getEditora() {
+		return Editora;
+	}
+
+	public void setEditora(String editora) {
+		Editora = editora;
+	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+
+	public String getOndeEncontrar() {
+		return ondeEncontrar;
+	}
+
+	public void setOndeEncontrar(String ondeEncontrar) {
+		this.ondeEncontrar = ondeEncontrar;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id_gen) {
+		this.id = id_gen;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Livro other = (Livro) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+
+	public int getISBN() {
+		return ISBN;
+	}
+
+	public void setISBN(int iSBN) {
+		ISBN = iSBN;
+	}
 
 }

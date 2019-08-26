@@ -1,6 +1,7 @@
 package br.edu.ifpb.esperanca.daw2.match.services;
 
-import java.awt.List;
+
+import java.util.List;
 
 import br.edu.ifpb.esperanca.daw2.match.classes.Identificavel;
 import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
