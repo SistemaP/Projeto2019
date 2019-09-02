@@ -1,13 +1,12 @@
 package br.edu.ifpb.esperanca.daw2.match.services;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.List;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import br.edu.ifpb.esperanca.daw2.match.classes.Identificavel;
 import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
+import br.edu.ifpb.esperanca.daw2.match.dao.UsuarioDAO;
 
 	@ApplicationScoped
 	public abstract class UserService implements Serializable, Service<Usuario> {
@@ -18,7 +17,7 @@ import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
 		private static final long serialVersionUID = -7803325791425670859L;
 		
 		@Inject
-		private Usuario userDAO;
+		private UsuarioDAO userDAO;
 
 		private Usuario update;
 		
@@ -37,7 +36,7 @@ import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
 		@Override
 		@TransacionalCdi
 		public void update(Usuario user)  {
-				update = Usuario.update(user);
+			userDAO.update(user);
 		}
 
 		/* (non-Javadoc)
@@ -60,20 +59,6 @@ import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
 		/* (non-Javadoc)
 		 * @see br.edu.ifpb.esperanca.daw2.services.Service#getAll()
 		 */
-		@Override
-		public String getUsuario() {
-				return (String) Usuario.getNovoUsuario();
 		}
 
-		@Override
-		public java.awt.List getAll() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public Identificavel getByID1(long userId) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-}
+		

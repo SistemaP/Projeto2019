@@ -1,28 +1,28 @@
 package br.edu.ifpb.esperanca.daw2.match.services;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import br.edu.ifpb.esperanca.daw2.match.classes.Identificavel;
-import br.edu.ifpb.esperanca.daw2.match.classes.Avaliacao;
 import br.edu.ifpb.esperanca.daw2.match.classes.GeneroLit;
+import br.edu.ifpb.esperanca.daw2.match.dao.GeneroLitDAO;
 
-	@ApplicationScoped
-	public abstract class GenService implements Serializable, Service<GeneroLit> {
+@ApplicationScoped
+public abstract class GenService implements Serializable, Service<GeneroLit> {
 
 		/**
 		 * 
 		 */
-		private static final long serialVersionUID = -7803325791425670859L;
+	private static final long serialVersionUID = -7803325791425670859L;
 		
 		@Inject
-		private GeneroLit genDAO;
+		private GeneroLitDAO genDAO;
 		
 		/* (non-Javadoc)
-		 * @see br.edu.ifpb.esperanca.daw2.services.Service#save(br.edu.ifpb.esperanca.daw2.ifoto.entities.Usuario)
+		 * @see 
+		 * br.edu.ifpb.esperanca.daw2.services.Service#save(br.edu.ifpb.esperanca.daw2.ifoto.entities.Usuario)
 		 */
 		@Override
 		@TransacionalCdi
@@ -31,7 +31,8 @@ import br.edu.ifpb.esperanca.daw2.match.classes.GeneroLit;
 		}
 
 		/* (non-Javadoc)
-		 * @see br.edu.ifpb.esperanca.daw2.services.Service#update(br.edu.ifpb.esperanca.daw2.ifoto.entities.GeneroLit, boolean)
+		 * @see
+		 *  br.edu.ifpb.esperanca.daw2.services.Service#update(br.edu.ifpb.esperanca.daw2.ifoto.entities.GeneroLit, boolean)
 		 */
 		@Override
 		@TransacionalCdi
@@ -40,7 +41,8 @@ import br.edu.ifpb.esperanca.daw2.match.classes.GeneroLit;
 		}
 
 		/* (non-Javadoc)
-		 * @see br.edu.ifpb.esperanca.daw2.services.Service#delete(br.edu.ifpb.esperanca.daw2.ifoto.entities.GeneroLit)
+		 * @see
+		 *  br.edu.ifpb.esperanca.daw2.services.Service#delete(br.edu.ifpb.esperanca.daw2.ifoto.entities.GeneroLit)
 		 */
 		@Override
 		@TransacionalCdi
@@ -49,7 +51,8 @@ import br.edu.ifpb.esperanca.daw2.match.classes.GeneroLit;
 		}
 
 		/* (non-Javadoc)
-		 * @see br.edu.ifpb.esperanca.daw2.services.Service#getByID(long)
+		 * @see 
+		 * br.edu.ifpb.esperanca.daw2.services.Service#getByID(long)
 		 */
 		@Override
 		public GeneroLit getByID(long genId)  {
@@ -58,7 +61,8 @@ import br.edu.ifpb.esperanca.daw2.match.classes.GeneroLit;
 
 		/* (non-Javadoc)
 		 * 
-		 * @see br.edu.ifpb.esperanca.daw2.services.Service#getAll()
+		 * @see
+		 *  br.edu.ifpb.esperanca.daw2.services.Service#getAll()
 		 */
 		
 		@Override

@@ -15,7 +15,7 @@ public class AvaliacaoTestes {
 	@Test
 	@DisplayName("Teste classe Avaliacao")
 
-	public void adicionaPet() {
+	public void adicionaAva() {
 		List<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
 		List avaliacoes1 = null;
 		for (int i = 0; i < 100; i++) {

@@ -27,10 +27,10 @@ import br.edu.ifpb.esperanca.daw2.match.classes.UsuarioJaExistenceException;
 			Livro l;
 			try {
 				
-				usuario.AdicionarUsuario("Teste Usuario", usuarios);
+				usuario.AdicionaUsuario("Teste Usuario", usuarios);
 				assertNotNull(l);
 				assertEquals(usuarios, l.getUsuario());
-			} catch (UsuarioJaExistenceException e) {
+			} catch (UsuarioJaExisteException e) {
 				fail();
 			}
 	}
@@ -43,15 +43,10 @@ import br.edu.ifpb.esperanca.daw2.match.classes.UsuarioJaExistenceException;
 				ArrayList<Avaliacao> avalia  = new ArrayList<Avaliacao>();
 				Avaliacao a = avaliacao.AvaliaLivro(" cinco estrelas uau", avalia);
 				assertNotNull(a);
-				assertEquals(" cinco estrelas uau", a.getAvaliacao());
-				return a;
+				assertEquals(" cinco estrelas uau", a.getNome());
 	}
 
 
-		private Avaliacao AvaliaLivro(String string, ArrayList<Avaliacao> avalia) {
-			// TODO Auto-generated method stub
-			return null;
-		}
 
 
 		@Test
@@ -61,7 +56,7 @@ import br.edu.ifpb.esperanca.daw2.match.classes.UsuarioJaExistenceException;
 			ArrayList<GeneroLit> adiciona  = new ArrayList<GeneroLit>();
 			GeneroLit g = adiciona.adicionaGeneroLit(" romance ", adiciona);
 			assertNotNull(g);
-			assertEquals("romance", g.getNomeGeneroLit());
+			assertEquals("romance", g.getNome());
 		}
 		
 
@@ -73,7 +68,7 @@ import br.edu.ifpb.esperanca.daw2.match.classes.UsuarioJaExistenceException;
 			ArrayList<Usuario> adiciona  = new ArrayList<Usuario>();
 			Usuario u = adiciona.adicionaUsuario(" iasmim ", adiciona);
 			assertNotNull(u);
-			assertEquals("iasmim"), u.getNome());
+			assertEquals("iasmim", u.getNome());
 		}
 	}
 

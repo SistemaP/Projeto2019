@@ -1,14 +1,14 @@
 package br.edu.ifpb.esperanca.daw2.match.services;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import br.edu.ifpb.esperanca.daw2.match.classes.Identificavel;
 import br.edu.ifpb.esperanca.daw2.match.classes.Livro;
-import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
+import br.edu.ifpb.esperanca.daw2.match.dao.LivroDAO;
+
 
 	@ApplicationScoped
 	public abstract class LivService implements Serializable, Service<Livro> {
@@ -19,7 +19,7 @@ import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
 		private static final long serialVersionUID = -7803325791425670859L;
 		
 		@Inject
-		private Livro livDAO;
+		private LivroDAO livDAO;
 
 		private Livro update;
 		
@@ -38,7 +38,7 @@ import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
 		@Override
 		@TransacionalCdi
 		public void update(Livro liv)  {
-				update = Livro.update(liv);
+			livDAO.update(liv);
 		}
 
 		/* (non-Javadoc)
@@ -58,23 +58,8 @@ import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
 				return livDAO.getByID(livId);
 		}
 
-		/* (non-Javadoc)
-		 * @see br.edu.ifpb.esperanca.daw2.services.Service#getAll()
-		 */
 		@Override
-		public String getLivro() {
-				return (String) Livro.getNovoLivro();
+		public List<Livro> getAll() {
+			return livDAO.getAll();
 		}
-
-		@Override
-		public java.awt.List getAll() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public Identificavel getByID1(long livId) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-}
+	}
