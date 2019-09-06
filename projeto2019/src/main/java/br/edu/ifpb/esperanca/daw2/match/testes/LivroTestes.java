@@ -2,9 +2,14 @@ package br.edu.ifpb.esperanca.daw2.match.testes;
 
 import org.junit.jupiter.api.Test;
 
-import br.edu.ifpb.esperanca.daw2.match.classes.Avaliacao;
+import br.edu.ifpb.esperanca.daw2.match.classes.Livro;
 import br.edu.ifpb.esperanca.daw2.match.classes.Livro;
 import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
+import br.edu.ifpb.esperanca.daw2.match.services.LivService;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,19 +24,24 @@ public class LivroTestes<T> {
 	@DisplayName("Teste classe Livro")
 
 	public void adicionaLiv() {
-		List<Livro> livros = new ArrayList<Livro>();
-		List livros1 = null;
-		for (int i = 0; i < 100; i++) {
-			Livro l = new Livro();
-			Usuario usuario = new Usuario();
-			usuario.setNome("l" + (100 - i));
-			l.setUsuario(usuario);
-			livros1.add(l);
-		}
-		System.out.println(livros1);
-		Collections.sort(livros1);
-		System.out.println(livros1);
-
+		LivService service = new LivService();
+		Livro l = new Livro();
+		l.setSinopse("HÁ MUITO TEMPO");
+		service.save(l);
+		
+		assertNotNull(l.getId());
+		
+		Livro l2 = service.getByID(l.getId());
+		assertEquals(l, l2);
+		service.update(l);
+		
+		Livro l3 = service.getByID(0);
+		assertEquals("bom" , l3.getSinopse());
+		
+		service.remove(l2);
+		
+		Livro l4 = service.getByID(0);
+		assertNull(l4);		
+		
 	}
-
-}
+	}

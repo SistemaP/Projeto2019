@@ -3,6 +3,11 @@ package br.edu.ifpb.esperanca.daw2.match.testes;
 import org.junit.jupiter.api.Test;
 import br.edu.ifpb.esperanca.daw2.match.classes.Avaliacao;
 import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
+import br.edu.ifpb.esperanca.daw2.match.services.AvaService;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,21 +19,26 @@ public class AvaliacaoTestes {
 
 	@Test
 	@DisplayName("Teste classe Avaliacao")
-
-	public void adicionaAva() {
-		List<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
-		List avaliacoes1 = null;
-		for (int i = 0; i < 100; i++) {
-			Avaliacao a = new Avaliacao();
-			Usuario usuario = new Usuario();
-			usuario.setNome("a" + (100 - i));
-			a.setUsuario(usuario);
-			avaliacoes1.add(a);
-		}
-		System.out.println(avaliacoes1);
-		Collections.sort(avaliacoes1);
-		System.out.println(avaliacoes1);
-
+	
+	public void adicionaAvaliacao() {
+		AvaService service = new AvaService();
+		Avaliacao a = new Avaliacao();
+		a.setComentario("otimo");
+		service.save(a);
+		
+		assertNotNull(a.getId());
+		
+		Avaliacao a2 = service.getByID(a.getId());
+		assertEquals(a, a2);
+		service.update(a);
+		
+		Avaliacao a3 = service.getByID(0);
+		assertEquals("bom" , a3.getComentario());
+		
+		service.remove(a2);
+		
+		Avaliacao a4 = service.getByID(0);
+		assertNull(a4);		
+		
 	}
-
-}
+	}
