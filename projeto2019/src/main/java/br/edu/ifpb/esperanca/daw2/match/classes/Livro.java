@@ -25,9 +25,7 @@ public class Livro implements Identificavel {
 	private String autor;
 	private String ondeEncontrar;
 	
-	@OneToMany
-	@JoinColumn(name = "id_Livro")
-	private Set<Livro> possui;
+	
 
 	public String getNome() {
 		return nome;

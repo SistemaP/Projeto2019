@@ -20,6 +20,10 @@ import javax.persistence.OneToMany;
 		@Column(name="id_gen")
 		private Long id;
 		private String nome;
+		
+		@OneToMany
+		@JoinColumn(name = "id_liv")
+		private Set<Livro> pertence;
 
 		public String getNome() {
 			return nome;

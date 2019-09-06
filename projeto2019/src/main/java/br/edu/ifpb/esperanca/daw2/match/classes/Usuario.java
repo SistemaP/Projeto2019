@@ -19,20 +19,17 @@ public class Usuario implements Identificavel {
 	private String email;
 	private String foto;
 
-	@ManyToMany
-	@JoinTable(name = "usuario_generolit", joinColumns = @JoinColumn(name = "id_generolit"), inverseJoinColumns = @JoinColumn(name = "id_usuario"))
-	private Set<GeneroLit> generos;
-
-	@OneToMany(mappedBy = "livro")
+	@OneToMany
+	@JoinColumn(name = "id_livro")
 	private Set<Livro> adiciona;
 
 	@OneToMany
 	@JoinColumn(name = "id_livro")
-	private Set<Livro> avaliado;
+	private Set<Livro> avalia;
 
 	@OneToMany
 	@JoinColumn(name = "id_Gen")
-	private Set<GeneroLit> selecionado;
+	private Set<GeneroLit> seleciona;
 
 	public Long getId() {
 		return id;
