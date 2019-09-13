@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="projeto2019">
-		<class>br.edu.ifpb.esperanca.daw2.ifoto.entities.Usuario</class>
-		<class>br.edu.ifpb.esperanca.daw2.ifoto.entities.Avaliacao</class>
-		<class>br.edu.ifpb.esperanca.daw2.ifoto.entities.GeneroLit</class>
-		<class>br.edu.ifpb.esperanca.daw2.ifoto.entities.Livro</class>
+		<class>br.edu.ifpb.esperanca.daw2.match.classes.Usuario</class>
+		<class>br.edu.ifpb.esperanca.daw2.match.classes.Avaliacao</class>
+		<class>br.edu.ifpb.esperanca.daw2.match.classes.GeneroLit</class>
+		<class>br.edu.ifpb.esperanca.daw2.match.classes.Livro</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://192.168.4.170:5432/MatchLiterario"/>
@@ -14,7 +14,7 @@
 			<property name="hibernate.hbm2ddl.auto" value="create" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
-			<property name="hibernate.dialect" value="org.hibernate.dialect.PostreSQLDicalect" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 		</properties>
 	</persistence-unit>
 </persistence>

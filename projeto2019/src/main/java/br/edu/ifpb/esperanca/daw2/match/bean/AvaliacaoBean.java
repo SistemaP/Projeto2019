@@ -70,6 +70,9 @@ import br.edu.ifpb.esperanca.daw2.match.services.AvaService;
 		}
 
 
+		public void setService(AvaService service) {
+			this.service = service;
+		}
 }
 
 

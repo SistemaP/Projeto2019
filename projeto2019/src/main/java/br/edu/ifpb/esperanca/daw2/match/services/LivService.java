@@ -6,12 +6,14 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import br.edu.ifpb.esperanca.daw2.match.classes.Identificavel;
 import br.edu.ifpb.esperanca.daw2.match.classes.Livro;
+import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
 import br.edu.ifpb.esperanca.daw2.match.dao.LivroDAO;
 
 
 	@ApplicationScoped
-	public abstract class LivService implements Serializable, Service<Livro> {
+	public class LivService implements Serializable, Service<Livro> {
 
 		/**
 		 * 
@@ -62,4 +64,5 @@ import br.edu.ifpb.esperanca.daw2.match.dao.LivroDAO;
 		public List<Livro> getAll() {
 			return livDAO.getAll();
 		}
+
 	}

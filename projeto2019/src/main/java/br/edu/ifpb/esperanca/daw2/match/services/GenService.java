@@ -10,7 +10,7 @@ import br.edu.ifpb.esperanca.daw2.match.classes.GeneroLit;
 import br.edu.ifpb.esperanca.daw2.match.dao.GeneroLitDAO;
 
 @ApplicationScoped
-public abstract class GenService implements Serializable, Service<GeneroLit> {
+public class GenService implements Serializable, Service<GeneroLit> {
 
 		/**
 		 * 

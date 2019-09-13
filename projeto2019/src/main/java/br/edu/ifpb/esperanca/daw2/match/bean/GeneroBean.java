@@ -68,6 +68,9 @@ import br.edu.ifpb.esperanca.daw2.match.services.GenService;
 		}
 
 
+		public void setService(GenService service) {
+			this.service = service;
+		}
 }
 
 

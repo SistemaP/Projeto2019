@@ -18,22 +18,4 @@ public interface Service<E extends Identificavel> {
 
 	List getAll();
 
-	void save(Usuario user);
-
-	void update(Usuario user);
-
-	void remove(Usuario user);
-
-	Identificavel getByID1(long userId);
-
-	String getNome();
-
-	String getUsuario();
-
-	String getGeneroLit();
-
-	String getAvaliacao();
-
-	String getLivro();
-
 }

@@ -3,12 +3,14 @@ package br.edu.ifpb.esperanca.daw2.match.classes;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+@Entity
 public class Usuario implements Identificavel {
 
 	@Id

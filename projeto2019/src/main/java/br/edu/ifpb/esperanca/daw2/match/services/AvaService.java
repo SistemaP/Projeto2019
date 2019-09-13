@@ -10,7 +10,7 @@ import br.edu.ifpb.esperanca.daw2.match.classes.Avaliacao;
 import br.edu.ifpb.esperanca.daw2.match.dao.AvaliacaoDAO;
 
 @ApplicationScoped
-public abstract class AvaService implements Serializable, Service<Avaliacao> {
+public class AvaService implements Serializable, Service<Avaliacao> {
 
 	/**
 	 * 

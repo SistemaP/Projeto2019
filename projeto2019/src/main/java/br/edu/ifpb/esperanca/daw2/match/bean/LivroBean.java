@@ -68,6 +68,11 @@ import br.edu.ifpb.esperanca.daw2.match.services.LivService;
 			return service;
 		}
 
+		public void setService(LivService service) {
+			this.service = service;
+		}
+		
+		
 
 }
 
