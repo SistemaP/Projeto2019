@@ -20,10 +20,62 @@ public class Usuario implements Identificavel {
 	private String biografia;
 	private String email;
 	private String foto;
+	private String username;
+	private String password;
+	private String grupo;
+	
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(String grupo) {
+		this.grupo = grupo;
+	}
 
 	@OneToMany
 	@JoinColumn(name = "id_livro")
 	private Set<Livro> adiciona;
+
+	public Set<Livro> getAdiciona() {
+		return adiciona;
+	}
+
+	public void setAdiciona(Set<Livro> adiciona) {
+		this.adiciona = adiciona;
+	}
+
+	public Set<Livro> getAvalia() {
+		return avalia;
+	}
+
+	public void setAvalia(Set<Livro> avalia) {
+		this.avalia = avalia;
+	}
+
+	public Set<GeneroLit> getSeleciona() {
+		return seleciona;
+	}
+
+	public void setSeleciona(Set<GeneroLit> seleciona) {
+		this.seleciona = seleciona;
+	}
 
 	@OneToMany
 	@JoinColumn(name = "id_livro")
