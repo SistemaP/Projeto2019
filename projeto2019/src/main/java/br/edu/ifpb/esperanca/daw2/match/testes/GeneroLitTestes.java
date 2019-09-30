@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import br.edu.ifpb.esperanca.daw2.match.classes.GeneroLit;
 import br.edu.ifpb.esperanca.daw2.match.classes.Usuario;
 import br.edu.ifpb.esperanca.daw2.match.services.AvaService;
+import br.edu.ifpb.esperanca.daw2.match.services.GenService;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
