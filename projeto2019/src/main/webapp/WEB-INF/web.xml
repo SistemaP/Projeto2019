@@ -10,6 +10,9 @@
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
+  <welcome-file-list>
+  	<welcome-file>/pages/private/perfil.xhtml</welcome-file>
+  </welcome-file-list>
   <login-config>
 		<auth-method>FORM</auth-method>
 		<realm-name>ifotoJdbcRealm</realm-name>

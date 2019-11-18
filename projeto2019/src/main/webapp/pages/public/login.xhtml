@@ -21,11 +21,12 @@
 			<h:panelGrid columns="2" style="text-align:center; margin: auto;">
 				<h:outputLabel for="j_username" value="Login:" />
 				<h:inputText id="j_username" />
-				
+
 				<h:outputLabel for="j_password" value="Senha:" />
 				<h:inputSecret id="j_password" />
 				<p:commandButton id="btnLogin" value="Login" ajax="false"
 					icon="fa fa-sign-in" />
+				<p:link id="cadastrar"  value="Cadastrar" href="./loginsenha.xhtml" />
 			</h:panelGrid>
 		</h:form>
 	</p:panel>
