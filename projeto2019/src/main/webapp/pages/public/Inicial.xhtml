@@ -20,41 +20,41 @@ body {
 	line-height: 1.4;
 }
 
-/* ~~ Seletores de elementos/tag ~~ */
-ul, ol, dl { /* Devido a variações entre navegadores, é recomendado zerar o padding e a margem nas listas. É possível especificar as quantidades aqui ou nos itens da lista (LI, DT, DD) que eles contêm. Lembre-se: o que você fizer aqui ficará em cascata para a lista de navegação a não ser que você escreva outro seletor mais específico. */
+
+ul, ol, dl { 
 	padding: 0;
 	margin: 0;
 }
 h1, h2, h3, h4, h5, h6, p {
-	margin-top: 0;	 /* ao remover a margem superior, as margens podem escapar das suas containing div. A margem inferior restante vai mantê-la afastada de qualquer elemento que se segue. */
+	margin-top: 0;	 
 	padding-right: 50px;
-	padding-left: 15px; /* adicionando o padding para os lados dos elementos dentro dos divs, ao invés dos próprios divs o livra de qualquer combinação de modelo de caixa. Um div aninhado com padding lateral também pode ser usado como método alternativo. */
+	padding-left: 15px; 
 }
-a img { /* esse seletor remove a borda azul padrão exibida em alguns navegadores ao redor de uma imagem circundada por um link. */
+a img { 
 	border: none;
 }
 
-/* ~~ A estilização dos links do seu site deve permanecer nesta ordem – incluindo o grupo de seletores que criam o efeito hover. ~~ */
+
 a:link {
 	color:#414958;
-	text-decoration: underline; /* a não ser que você estilize seus links para que pareçam extremamente únicos, é melhor utilizar links sublinhados para uma identificação visual mais rápida. */
+	text-decoration: underline; 
 }
 a:visited {
 	color: #4E5869;
 	text-decoration: underline;
 }
-a:hover, a:active, a:focus { /* esse grupo de seletores dará ao navegador que estiver usando um teclado a mesma experiência de hover do que uma pessoa usando um mouse. */
+a:hover, a:active, a:focus { 
 	text-decoration: none;
 }
 
-/* ~ esse contêiner envolve todos os outros divs dando a eles uma largura com base em porcentagem ~~ */
+
 .container {
 	width: 80%;
-	max-width: 1260px;/* uma largura máxima pode ser desejável para evitar que esse layout fique muito largo num monitor grande. Isso torna o comprimento da linha mais legível. O IE6 não concorda com essa declaração. */
-	min-width: 780px;/* uma largura mínima pode ser desejável para evitar que esse layout fique muito estreito. Isso torna o comprimento da linha mais legível nas colunas laterais. O IE6 não concorda com essa declaração. */
+	max-width: 1260px;
+	min-width: 780px;
 	background-color: #F89C1F;
-	margin: 0 auto; /* o valor automático nos lados, combinado com a largura, centraliza o layout. Não é necessário definir a largura do contêiner para 100%. */
-	overflow: hidden; /* Essa declaração limpa todas as colunas flutuantes que estão dentro do contêiner. */
+	margin: 0 auto; 
+	overflow: hidden; 
 }
 
 /* ~~ Essas são as colunas para o layout. ~~ 
@@ -80,9 +80,9 @@ a:hover, a:active, a:focus { /* esse grupo de seletores dará ao navegador que e
 	float: left;
 }
 
-/* ~~ Este seletor agrupado oferece as listas dentro do espaço da área de conteúdo.~~ */
+
 .content ul, .content ol { 
-	padding: 0 15px 15px 40px; /* esse padding espelha o padding direito nos cabeçalhos e regra de parágrafo acima. O padding foi colocado na parte inferior para obter espaço entre outros elementos das listas e à esquerda para criar o recuo. Estes podem ser ajustados como desejar. */
+	padding: 0 15px 15px 40px; 
 }
 
 /* ~~ Os estilos de lista de navegação (podem ser removidos se for escolhido o uso de um submenu criado anteriormente, como o Spry) ~~ */
@@ -181,7 +181,7 @@ ul.nav a { zoom: 1; }  /* essa propriedade do zoom fornece ao IE o acionador de 
     <p><img src="../PNG/bem vindo ao site do.png" width="800" height="300" alt="capa" /></p>
     <h1></h1>
     <h1></h1>
-    <h1>OLÁ. NO SITE DA EQUIPE MATCH LITERÁRIO VOCÊ ENCONTRA O DOWNLOAD DO NOSSO APLICATIVO.</h1>
+    <h1>OLÁ. ESTE É O SITE DA EQUIPE: MATCH LITERÁRIO.</h1>
     <p></p>
     <p>O PROJETO MATCH LITERÁRIO É RESULTADO DE UM PROJETO INTEGRADOR DO INSTITUTO FEDERAL DA PARAÍBA - CAMPUS ESPERANÇA.</p>
     <p></p>
