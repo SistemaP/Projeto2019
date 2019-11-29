@@ -1,4 +1,6 @@
-<h:head>
+<!DOCTYPE html>
+<html>
+</h:head>
 <title> Cadastro de Livro </title>
 </h:head>
 
@@ -11,41 +13,41 @@
 <h:outputText value="Filtros" />
 </f:facet>
 <f:facet name="header">
-<h:outputText value="Cadastro de usuario" />
+<h:outputText value="Cadastro de Livro" />
 </f:facet>
 
 <p:outputLabel value="Nome: " for="nomeField" />
-<p:inputText id="nomeField" value="#{usuarioBean.entidade.nome}"
+<p:inputText id="nomeField" value="#{livroBean.entidade.nome}"
 label="Nome" style="width:350px" />
 
-<p:outputLabel value="Username: " for="usernameField" />
-<p:inputText id="usernameField" value="#{usuarioBean.entidade.username}"
-label="username" style="width:350px" />
+<p:outputLabel value="name: " for="nameField" />
+<p:inputText id="nameField" value="#{livroBean.entidade.name}"
+label="name" style="width:350px" />
 
 <p:outputLabel value="Email: " for="emailField" />
-<p:inputText id="emailField" value="#{usuarioBean.entidade.email}"
+<p:inputText id="emailField" value="#{livroBean.entidade.email}"
 label="email" style="width:350px" />
 
 
-<p:outputLabel value="Password: " for="passwordField" />
-<p:password id="passwordField" value="#{usuarioBean.entidade.password}" feedback="true" inline="true" />
+<p:outputLabel value="Sinopse: " for="sinopseField" />
+<p:password id="sinopseField" value="#{livroBean.entidade.sinopse}" feedback="true" inline="true" />
 
 <p:commandButton id="btnNovo" value="Novo"
-action="#{usuarioBean.save()}" ajax="false" />
+action="#{livroBean.save()}" ajax="false" />
 <p:commandButton id="btnLimpar" value="Limpar"
-action="#{usuarioBean.limpar()}" ajax="false" />
+action="#{livroBean.limpar()}" ajax="false" />
 </p:panelGrid>
 
 
 <p:dataTable id="dataTableEntidades" border="1" var="entidade"
-value="#{usuarioBean.entidades}">
+value="#{livroBean.entidades}">
 <p:column>
 <f:facet name="header">Nome</f:facet>
 <h:outputText value="#{entidade.nome}" />
 </p:column>
 <p:column>
-<f:facet name="header">username</f:facet>
-<h:outputText value="#{entidade.username}"/>
+<f:facet name="header">name</f:facet>
+<h:outputText value="#{entidade.name}"/>
 </p:column>
 <p:column>
 <f:facet name="header">email</f:facet>
@@ -59,9 +61,9 @@ value="#{usuarioBean.entidades}">
 <p:column>
 <f:facet name="header">Opções</f:facet>
 <p:commandButton value="Remover" ajax="false"
-action="#{usuarioBean.remove(entidade)}"></p:commandButton>
+action="#{livroBean.remove(entidade)}"></p:commandButton>
 <p:commandButton value="Editar" ajax="false"
-action="#{usuarioBean.editar(entidade.id)}"></p:commandButton>
+action="#{livroBean.editar(entidade.id)}"></p:commandButton>
 </p:column>
 </p:dataTable>
 </h:form>

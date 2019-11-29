@@ -1,0 +1,157 @@
+<!DOCTYPE xhtml>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Match Literário</title>
+	<style type="text/css">
+
+/*css */
+body {
+	background-color: #4E5869;
+	margin: 0;
+	padding: 0;
+	color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	line-height: 1.4;
+}
+
+ul, ol, dl {
+	padding: 0;
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;
+	padding-right: 50px;
+	padding-left: 15px;
+}
+
+a img {
+	border: none;
+}
+
+a:link {
+	color: #414958;
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #4E5869;
+	text-decoration: underline;
+}
+
+a:hover, a:active, a:focus {
+	text-decoration: none;
+}
+
+.container {
+	width: 80%;
+	max-width: 1260px;
+	min-width: 780px;
+	background-color: #F89C1F;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+/* ~~ Essas são as colunas para o layout. ~~ 
+
+1) O padding é posto somente na parte superior e inferior dos divs. Os elementos nesses divs têm padding nos seus lados impedindo o modelo tipo caixa. Lembre-se: ao adicionar qualquer padding lateral ou bordas para o próprio div, ele será adicionado à largura que você define para criar a largura *total*. Também é possível remover o padding no elemento dentro do div e estabelecer um segundo div dentro do primeiro, sem largura, e com o padding necessário para o seu design.
+
+2) Como as colunas são todas flutuantes, não foi dada nenhuma margem. Se for necessário adicionar margem, evite colocá-la no lado flutuante, por exemplo, uma margem direita em um div definido para flutuar à direita. Em vez disso, muitas vezes, o padding é utilizado. Para os divs em que essa regra tem que ser quebrada, é necessário adicionar a declaração "display:inline" que irá solucionar um erro recorrente em algumas versões do Internet Explorer em que a imagem é duplicada.
+
+3) Como as classes podem ser usadas diversas vezes em um documento e um elemento também pode ter várias classes aplicadas, foram atribuídas às colunas nomes de classe ao invés de IDs. Por exemplo, se for necessário, os divs com duas barras laterais podem ser empilhados. Se preferir, é possível alterar facilmente para os IDs desde que esteja usando-os somente uma vez em cada documento.
+
+4) Caso prefira seu navegador à direita ao invés de à esquerda, simplesmente flutue essas colunas para a direção oposta, todas à direita ao invés de à esquerda, e elas irão processar na ordem inversa. Não há necessidade de mover os divs ao redor da fonte HTML.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 20%;
+	background-color: #FFFFFF;
+	padding-bottom: 10px;
+}
+
+.content {
+	padding: 10px 0;
+	width: 80%;
+	float: left;
+}
+
+.content ul, .content ol {
+	padding: 0 15px 15px 40px;
+}
+
+/* ~~ Os estilos de lista de navegação (podem ser removidos se for escolhido o uso de um submenu criado anteriormente, como o Spry) ~~ */
+ul.nav {
+	list-style: none; /* isso remove o marcador de lista */
+	border-top: 1px solid #666;
+	/* isso cria a borda da parte superior para os links – todos os outros são colocados usando uma borda na parte inferior no LI */
+	margin-bottom: 15px;
+	/* isso cria o espaço entre a navegação no conteúdo abaixo */
+}
+
+ul.nav li {
+	border-bottom: 1px solid #666; /* isso cria a separação do botão */
+}
+
+ul.nav a, ul.nav a:visited {
+	/* ao agrupar estes seletores, seus links mantêm a aparência de botão mesmo após terem sido visitados. */
+	padding: 5px 5px 5px 15px;
+	display: block;
+	/* isso fornece as propriedades do bloco de links causando o preenchimento de todo o LI. Isso fará com que a área inteira responda ao clique do mouse. */
+	text-decoration: none;
+	background-color: #000000;
+	color: #FFF;
+}
+
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus {
+	/* isso altera o fundo e a cor do texto para navegação com o mouse ou teclado. */
+	background-color: #6F7D94;
+	color: #FFF;
+}
+
+/* ~~ flutuações diversas/limpeza de classes ~~ */
+.fltrt {
+	/* essa classe pode ser usada para flutuar um elemento à direita da página. O elemento flutuado deve preceder o elemento e ser o próximo da página. */
+	float: right;
+	margin-left: 8px;
+}
+
+.fltlft {
+	/* essa classe pode ser usada para flutuar um elemento à esquerda da página. O elemento flutuado deve preceder o elemento e ser o próximo da página. */
+	float: left;
+	margin-right: 8px;
+}
+
+.clearfloat {
+	/* essa classe pode ser colocada em um <br /> ou em um div vazio como o elemento final que segue o último div flutuado (no #contêiner) caso o overflow:hidden no contêiner for removido. */
+	clear: both;
+	height: 0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+/*css */
+</style>
+	<!--[if lte IE 7]>
+<style>
+.content { margin-right: -1px; } /* essa margem negativa de 1px pode ser colocada em qualquer uma das colunas nesse layout com o mesmo efeito corretivo. */
+ul.nav a { zoom: 1; }  /* essa propriedade do zoom fornece ao IE o acionador de hasLayout necessário para corrigir o espaço extra em branco entre os links */
+</style>
+<![endif]-->
+</h:head>
+
+<h:body>
+
+	
+		<div class="sidebar1">
+			<ui:include src="sidebar.xhtml"></ui:include>
+		</div>
+				<!-- end .container -->
+</h:body>
+</html>

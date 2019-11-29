@@ -1,15 +1,20 @@
-<!DOCTYPE html>
+<!DOCTYPE xhtml>
 <html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:h="http://xmlns.jcp.org/jsf/html"
-xmlns:f="http://xmlns.jcp.org/jsf/core"
-xmlns:p="http://primefaces.org/ui">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-<title> Cadastro do usuario </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Cadastro</title>
 </h:head>
-
 <h:body>
-<p:messages />
 
+ <div class="container">
+ <ui:include src="layout.xhtml"></ui:include>
+ <div class="content">
+ <p:messages />
+<p><img src="../PNG/bem vindo ao site do.png" width="400" alt="capa" /></p>
 <h:form>
 <p:panelGrid columns="2" >
 <f:facet name="caption">
@@ -71,5 +76,7 @@ action="#{usuarioBean.editar(entidade.id)}"></p:commandButton>
 </p:column>
 </p:dataTable>
 </h:form>
+</div>
+</div>
 </h:body>
 </html>
