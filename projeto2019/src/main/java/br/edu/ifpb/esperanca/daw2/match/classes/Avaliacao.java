@@ -25,6 +25,18 @@ public class Avaliacao implements Identificavel {
 	@ManyToOne
 	@JoinColumn(name="id_usuario")
 	private Usuario usuario;
+	
+	@ManyToOne
+	@JoinColumn(name="id_livro")
+	private Livro livro;
+	
+	public Livro getLivro() {
+		return livro;
+	}
+	
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
 
 	public Calendar getData() {
 		return data;
