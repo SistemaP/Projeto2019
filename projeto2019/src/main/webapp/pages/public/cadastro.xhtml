@@ -61,6 +61,12 @@ value="#{usuarioBean.entidades}">
 <f:facet name="header">email</f:facet>
 <h:outputText value="#{entidade.email}" />
 </p:column>
+<f:facet name="header">Genero favorito</f:facet>
+<h:outputText value="#{entidade.generofav}" />
+</p:column>
+<f:facet name="header">Perfil literário</f:facet>
+<h:outputText value="#{entidade.biografia}" />
+</p:column>
 <p:column>
 <f:facet name="header">password</f:facet>
 <h:outputText value="#{entidade.password}"/>

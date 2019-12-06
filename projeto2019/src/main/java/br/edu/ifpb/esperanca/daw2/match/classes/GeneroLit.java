@@ -21,8 +21,8 @@ import javax.persistence.OneToMany;
 		private Long id;
 		private String nome;
 		
-		@OneToMany
-		@JoinColumn(name = "id_liv")
+		@ManyToMany
+		@JoinTable(name = "id_liv")
 		private Set<Livro> pertence;
 
 		public String getNome() {

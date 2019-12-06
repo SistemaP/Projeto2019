@@ -11,23 +11,37 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Usuario implements Identificavel {
 
 	@Id
 	@Column(name = "id_usuario")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usu_seq")
+	@SequenceGenerator(name = "usu_seq", sequenceName = "usu_seq")
 	private Long id;
 	private String nome;
 	private String biografia;
+	private String generofav;
 	private String email;
 	private String foto;
 	private String username;
 	private String password;
 	private String grupo;
 	
-
+	@OneToMany
+	@JoinColumn(name = "id_usu")
+	private Set<Livro> adiciona;
+    
+	@ManyToMany
+	@JoinTable(name = "id_Gen")
+	private Set<GeneroLit> seleciona;
+	
+	public Set<Livro> getAdiciona() {
+		return adiciona;
+	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -52,25 +66,11 @@ public class Usuario implements Identificavel {
 		this.grupo = grupo;
 	}
 
-	@OneToMany
-	@JoinColumn(name = "id_livro")
-	private Set<Livro> adiciona;
-
-	public Set<Livro> getAdiciona() {
-		return adiciona;
-	}
 
 	public void setAdiciona(Set<Livro> adiciona) {
 		this.adiciona = adiciona;
 	}
 
-	public Set<Livro> getAvalia() {
-		return avalia;
-	}
-
-	public void setAvalia(Set<Livro> avalia) {
-		this.avalia = avalia;
-	}
 
 	public Set<GeneroLit> getSeleciona() {
 		return seleciona;
@@ -79,14 +79,6 @@ public class Usuario implements Identificavel {
 	public void setSeleciona(Set<GeneroLit> seleciona) {
 		this.seleciona = seleciona;
 	}
-
-	@OneToMany
-	@JoinColumn(name = "id_livro")
-	private Set<Livro> avalia;
-
-	@OneToMany
-	@JoinColumn(name = "id_Gen")
-	private Set<GeneroLit> seleciona;
 
 	public Long getId() {
 		return id;
@@ -111,7 +103,15 @@ public class Usuario implements Identificavel {
 	public void setBiografia(String biografia) {
 		this.biografia = biografia;
 	}
+	
+	public String getGenerofav() {
+		return generofav;
+	}
 
+	public void setGenerofav(String generofav) {
+		this.generofav = generofav;
+	}
+	
 	public String getEmail() {
 		return email;
 	}

@@ -1,71 +1,83 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE xhtml>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Cadastro de Livro</title>
 </h:head>
-<title> Cadastro de Livro </title>
-</h:head>
-
 <h:body>
-<p:messages />
+	<p:messages />
 
-<h:form>
-<p:panelGrid columns="2" >
-<f:facet name="caption">
-<h:outputText value="Filtros" />
-</f:facet>
-<f:facet name="header">
-<h:outputText value="Cadastro de Livro" />
-</f:facet>
+	<h:form id="form1">
+		<p:panelGrid columns="2">
+			<f:facet name="caption">
+				<h:outputText value="Filtros" />
+			</f:facet>
+			<f:facet name="header">
+				<h:outputText value="Cadastro de Livro" />
+			</f:facet>
 
-<p:outputLabel value="Nome: " for="nomeField" />
-<p:inputText id="nomeField" value="#{livroBean.entidade.nome}"
-label="Nome" style="width:350px" />
+			<p:outputLabel value="Nome: " for="nomeField" />
+			<p:inputText id="nomeField" value="#{livroBean.entidade.nome}"
+				label="Nome" style="width:350px" />
+			
+			<p:outputLabel value="Genero: " for="generoField" />
+			<p:inputText id="generoField" value="#{livroBean.entidade.genero}"
+				label="Genero" style="width:350px" />
+				
+			<p:outputLabel value="Sinopse: " for="sinopseField" />
+			<p:inputText id="sinopseField" value="#{livroBean.entidade.sinopse}"
+				label="Sinopse" style="width:350px" />
+				
+			<p:outputLabel value="Foto: " for="fotoField" />
+			<p:fileUpload id="fotoField" value="#{livroBean.foto}" 
+				label="Foto" style="width:350px" />
+				
+			<p:outputLabel value="Autor: " for="autorField" />
+			<p:inputText id="autorField" value="#{livroBean.entidade.autor}"
+				label="Autor" style="width:350px" />
+					
+			<p:commandButton id="btnNovo" value="Novo"
+				action="#{livroBean.save()}" ajax="false" update=":fomr1:dataTableEntidades" />
+			<p:commandButton id="btnLimpar" value="Limpar"
+				action="#{livroBean.limpar()}" ajax="false" />
+		</p:panelGrid>
 
-<p:outputLabel value="name: " for="nameField" />
-<p:inputText id="nameField" value="#{livroBean.entidade.name}"
-label="name" style="width:350px" />
 
-<p:outputLabel value="Email: " for="emailField" />
-<p:inputText id="emailField" value="#{livroBean.entidade.email}"
-label="email" style="width:350px" />
-
-
-<p:outputLabel value="Sinopse: " for="sinopseField" />
-<p:password id="sinopseField" value="#{livroBean.entidade.sinopse}" feedback="true" inline="true" />
-
-<p:commandButton id="btnNovo" value="Novo"
-action="#{livroBean.save()}" ajax="false" />
-<p:commandButton id="btnLimpar" value="Limpar"
-action="#{livroBean.limpar()}" ajax="false" />
-</p:panelGrid>
-
-
-<p:dataTable id="dataTableEntidades" border="1" var="entidade"
-value="#{livroBean.entidades}">
-<p:column>
-<f:facet name="header">Nome</f:facet>
-<h:outputText value="#{entidade.nome}" />
-</p:column>
-<p:column>
-<f:facet name="header">name</f:facet>
-<h:outputText value="#{entidade.name}"/>
-</p:column>
-<p:column>
-<f:facet name="header">email</f:facet>
-<h:outputText value="#{entidade.email}" />
-</p:column>
-<p:column>
-<f:facet name="header">password</f:facet>
-<h:outputText value="#{entidade.password}"/>
-
-</p:column>
-<p:column>
-<f:facet name="header">Opções</f:facet>
-<p:commandButton value="Remover" ajax="false"
-action="#{livroBean.remove(entidade)}"></p:commandButton>
-<p:commandButton value="Editar" ajax="false"
-action="#{livroBean.editar(entidade.id)}"></p:commandButton>
-</p:column>
-</p:dataTable>
-</h:form>
+		<p:dataTable id="dataTableEntidades" border="1" var="entidade"
+			value="#{livroBean.entidades}">
+			<p:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{entidade.nome}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">Genero</f:facet>
+				<h:outputText value="#{entidade.genero}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">Sinopse</f:facet>
+				<h:outputText value="#{entidade.sinopse}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">Foto</f:facet>
+				<h:outputText value="#{entidade.foto}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">Autor</f:facet>
+				<h:outputText value="#{entidade.autor}" />
+			</p:column>		
+	
+			<p:column>
+				<f:facet name="header">OpÃ§Ãµes</f:facet>
+				<p:commandButton value="Remover" ajax="false"
+					action="#{livroBean.remove(entidade)}"></p:commandButton>
+				<p:commandButton value="Editar" ajax="false"
+					action="#{livroBean.editar(entidade.id)}"></p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
 </h:body>
 </html>

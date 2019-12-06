@@ -4,17 +4,22 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Livro implements Identificavel {
 	
 	@Id
 	@Column(name = "id_livro")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "livro_seq")
+	@SequenceGenerator(name = "livro_seq", sequenceName = "livro_seq")
 	private Long id;
 	private int ISBN;
 	private String nome;
@@ -24,8 +29,16 @@ public class Livro implements Identificavel {
 	private String Editora;
 	private String autor;
 	private String ondeEncontrar;
+	private String genero;
 	
-	
+
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
 
 	public String getNome() {
 		return nome;
