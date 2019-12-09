@@ -8,8 +8,6 @@ import java.util.Collection;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -71,13 +69,14 @@ public class LivroBean implements Serializable {
 
 	public void save() throws Exception {
 		getService().save(entidade);
-		if (foto.getFileName() != null) {
+		if (foto != null) {
 			File file = new File("C:\\Users\\Aluno\\git\\Projeto20192\\projeto2019\\src\\main\\webapp\\capas",
 					entidade.getId() + ".PNG");
 			OutputStream out = new FileOutputStream(file);
 			out.write(foto.getContents());
 			out.close();
 		}
+		entidades = (Collection<Livro>) getService().getAll();
 	}
 
 	public void editar(Long id) throws Exception {

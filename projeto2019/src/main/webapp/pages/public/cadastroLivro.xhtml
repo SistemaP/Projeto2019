@@ -11,7 +11,7 @@
 <h:body>
 	<p:messages />
 
-	<h:form id="form1">
+	<h:form id="form1" enctype="multipart/form-data">
 		<p:panelGrid columns="2">
 			<f:facet name="caption">
 				<h:outputText value="Filtros" />
@@ -33,7 +33,7 @@
 				label="Sinopse" style="width:350px" />
 				
 			<p:outputLabel value="Foto: " for="fotoField" />
-			<p:fileUpload id="fotoField" value="#{livroBean.foto}" 
+			<p:fileUpload id="fotoField" value="#{livroBean.foto}" mode="simple"
 				label="Foto" style="width:350px" />
 				
 			<p:outputLabel value="Autor: " for="autorField" />
@@ -50,6 +50,10 @@
 		<p:dataTable id="dataTableEntidades" border="1" var="entidade"
 			value="#{livroBean.entidades}">
 			<p:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{entidade.id}" />
+			</p:column>
+			<p:column>
 				<f:facet name="header">Nome</f:facet>
 				<h:outputText value="#{entidade.nome}" />
 			</p:column>
@@ -63,7 +67,7 @@
 			</p:column>
 			<p:column>
 				<f:facet name="header">Foto</f:facet>
-				<h:outputText value="#{entidade.foto}" />
+				<p:graphicImage height="100" url="../../capas/#{entidade.id}.PNG"  />
 			</p:column>
 			<p:column>
 				<f:facet name="header">Autor</f:facet>
