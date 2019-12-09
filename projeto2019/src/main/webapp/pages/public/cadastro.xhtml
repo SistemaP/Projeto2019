@@ -70,8 +70,6 @@ value="#{usuarioBean.entidades}">
 <p:column>
 <f:facet name="header">password</f:facet>
 <h:outputText value="#{entidade.password}"/>
-
-
 </p:column>
 <p:column>
 <f:facet name="header">Opções</f:facet>
@@ -80,8 +78,8 @@ action="#{usuarioBean.remove(entidade)}"></p:commandButton>
 <p:commandButton value="Editar" ajax="false"
 action="#{usuarioBean.editar(entidade.id)}"></p:commandButton>
 </p:column>
-</p:dataTable>
 </h:form>
+</p:dataTable>
 </div>
 </div>
 </h:body>
