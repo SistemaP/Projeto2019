@@ -1,6 +1,8 @@
 package br.edu.ifpb.esperanca.daw2.match.bean;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
@@ -8,10 +10,14 @@ import java.util.Collection;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.PhaseId;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
 
 import br.edu.ifpb.esperanca.daw2.match.classes.Livro;
@@ -79,6 +85,19 @@ public class LivroBean implements Serializable {
 		entidades = (Collection<Livro>) getService().getAll();
 	}
 
+	public StreamedContent getStreamedImageById() throws FileNotFoundException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		String string = context.getExternalContext().getRequestParameterMap().get("item_img_id");
+		if(string == null) return new DefaultStreamedContent();
+		Long id = Long.parseLong(string);
+
+//		if (id == null)
+//			id = 3l;
+		File file = new File("C:\\Users\\Aluno\\git\\Projeto20192\\projeto2019\\src\\main\\webapp\\capas", id + ".PNG");
+		FileInputStream in = new FileInputStream(file);
+		return new DefaultStreamedContent(in, "image/png");
+	}
+
 	public void editar(Long id) throws Exception {
 		this.getEntidade().setId(id);
 		save();
@@ -95,9 +114,9 @@ public class LivroBean implements Serializable {
 	public void setService(LivService service) {
 		this.service = service;
 	}
-	
+
 	public void handleFileUpload(FileUploadEvent event) {
-        System.out.println("Successful"+ event.getFile().getFileName() + " is uploaded.");
-    }
+		System.out.println("Successful" + event.getFile().getFileName() + " is uploaded.");
+	}
 
 }

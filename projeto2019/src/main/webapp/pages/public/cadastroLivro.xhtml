@@ -23,25 +23,26 @@
 			<p:outputLabel value="Nome: " for="nomeField" />
 			<p:inputText id="nomeField" value="#{livroBean.entidade.nome}"
 				label="Nome" style="width:350px" />
-			
+
 			<p:outputLabel value="Genero: " for="generoField" />
 			<p:inputText id="generoField" value="#{livroBean.entidade.genero}"
 				label="Genero" style="width:350px" />
-				
+
 			<p:outputLabel value="Sinopse: " for="sinopseField" />
 			<p:inputText id="sinopseField" value="#{livroBean.entidade.sinopse}"
 				label="Sinopse" style="width:350px" />
-				
+
 			<p:outputLabel value="Foto: " for="fotoField" />
 			<p:fileUpload id="fotoField" value="#{livroBean.foto}" mode="simple"
 				label="Foto" style="width:350px" />
-				
+
 			<p:outputLabel value="Autor: " for="autorField" />
 			<p:inputText id="autorField" value="#{livroBean.entidade.autor}"
 				label="Autor" style="width:350px" />
-					
+
 			<p:commandButton id="btnNovo" value="Novo"
-				action="#{livroBean.save()}" ajax="false" update=":fomr1:dataTableEntidades" />
+				action="#{livroBean.save()}" ajax="false"
+				update=":fomr1:dataTableEntidades" />
 			<p:commandButton id="btnLimpar" value="Limpar"
 				action="#{livroBean.limpar()}" ajax="false" />
 		</p:panelGrid>
@@ -67,19 +68,59 @@
 			</p:column>
 			<p:column>
 				<f:facet name="header">Foto</f:facet>
-				<p:graphicImage height="100" url="../../capas/#{entidade.id}.PNG"  />
+				<p:graphicImage id="photo" height="80" stream="true" value="#{livroBean.getStreamedImageById()}" cache="FALSE" >
+					<f:attribute name="item_img_id" value="#{entidade.id}"/>
+				</p:graphicImage>
 			</p:column>
 			<p:column>
 				<f:facet name="header">Autor</f:facet>
 				<h:outputText value="#{entidade.autor}" />
-			</p:column>		
-	
+			</p:column>
+
 			<p:column>
 				<f:facet name="header">Opções</f:facet>
 				<p:commandButton value="Remover" ajax="false"
 					action="#{livroBean.remove(entidade)}"></p:commandButton>
 				<p:commandButton value="Editar" ajax="false"
 					action="#{livroBean.editar(entidade.id)}"></p:commandButton>
+				<p:commandButton value="Avaliar" ajax="false"
+					action="#{livroBean.avaliar(entidade.id)}"></p:commandButton>
+					<p:growl id="messages" showDetail="true" />
+ 
+    <h:panelGrid columns="2" cellpadding="5">
+        <h:outputText value="Basic:" />
+        <p:rating value="#{ratingView.rating1}" />
+ 
+        <h:outputText value="Callback:" />
+        <p:rating value="#{ratingView.rating2}" stars="10" cancel="false" onRate="alert('You rated ' + value)" />
+ 
+        <h:outputText value="Ajax Rate:" />
+        <p:rating value="#{ratingView.rating3}">
+            <p:ajax event="rate" listener="#{ratingView.onrate}" update="messages" />
+            <p:ajax event="cancel" listener="#{ratingView.oncancel}" update="messages" />
+        </p:rating>
+ 
+        <h:outputText value="Readonly:" />
+        <p:rating value="#{ratingView.rating4}" readonly="true" />
+ 
+        <h:outputText value="Disabled"/>
+        <p:rating value="#{ratingView.rating4}" disabled="true" />
+    </h:panelGrid>
+ 
+    <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" style="margin:5px" />
+ 
+    <p:dialog header="Values" widgetVar="dlg" showEffect="fade" hideEffect="fade">
+        <h:panelGrid id="display" columns="2" cellpadding="5">
+            <h:outputText value="Rating 1:" />
+            <h:outputText value="#{ratingView.rating1}" />
+ 
+            <h:outputText value="Rating 2:" />
+            <h:outputText value="#{ratingView.rating2}" />
+ 
+            <h:outputText value="Rating 3:" />
+            <h:outputText value="#{ratingView.rating3}" />
+        </h:panelGrid>
+    </p:dialog>
 			</p:column>
 		</p:dataTable>
 	</h:form>
