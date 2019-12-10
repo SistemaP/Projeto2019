@@ -83,6 +83,8 @@
 					action="#{livroBean.remove(entidade)}"></p:commandButton>
 				<p:commandButton value="Editar" ajax="false"
 					action="#{livroBean.editar(entidade.id)}"></p:commandButton>
+				<p:outputLabel value="avaliar: " for="livroField" />
+                <p:rating id="livroField" stars="5" ></p:rating>
 			</p:column>
 		</p:dataTable>
 	</h:form>
