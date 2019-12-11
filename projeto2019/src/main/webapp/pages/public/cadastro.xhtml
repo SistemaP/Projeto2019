@@ -36,6 +36,9 @@ label="username" style="width:350px" />
 <p:inputText id="emailField" value="#{usuarioBean.entidade.email}"
 label="email" style="width:350px" />
 
+<p:outputLabel value="Generofav: " for="generofavField" />
+<p:inputText id="generofavField" value="#{usuarioBean.entidade.generofav}"
+label="generofav" style="width:350px" />
 
 <p:outputLabel value="Password: " for="passwordField" />
 <p:password id="passwordField" value="#{usuarioBean.entidade.password}" feedback="true" inline="true" />
@@ -61,11 +64,9 @@ value="#{usuarioBean.entidades}">
 <f:facet name="header">email</f:facet>
 <h:outputText value="#{entidade.email}" />
 </p:column>
+<p:column>
 <f:facet name="header">Genero favorito</f:facet>
 <h:outputText value="#{entidade.generofav}" />
-</p:column>
-<f:facet name="header">Perfil literário</f:facet>
-<h:outputText value="#{entidade.biografia}" />
 </p:column>
 <p:column>
 <f:facet name="header">password</f:facet>
@@ -78,9 +79,10 @@ action="#{usuarioBean.remove(entidade)}"></p:commandButton>
 <p:commandButton value="Editar" ajax="false"
 action="#{usuarioBean.editar(entidade.id)}"></p:commandButton>
 </p:column>
-</h:form>
 </p:dataTable>
+</h:form>
 </div>
 </div>
 </h:body>
 </html>
+

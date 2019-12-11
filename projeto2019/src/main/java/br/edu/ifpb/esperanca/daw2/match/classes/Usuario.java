@@ -28,14 +28,13 @@ public class Usuario implements Identificavel {
 	private String foto;
 	private String username;
 	private String password;
-	private String grupo;
 	
 	@OneToMany
 	@JoinColumn(name = "id_usu")
 	private Set<Livro> adiciona;
     
-	@ManyToMany
-	@JoinTable(name = "id_Gen")
+	@OneToMany
+	@JoinColumn(name = "id_Gen")
 	private Set<GeneroLit> seleciona;
 	
 	public Set<Livro> getAdiciona() {
@@ -57,15 +56,6 @@ public class Usuario implements Identificavel {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public String getGrupo() {
-		return grupo;
-	}
-
-	public void setGrupo(String grupo) {
-		this.grupo = grupo;
-	}
-
 
 	public void setAdiciona(Set<Livro> adiciona) {
 		this.adiciona = adiciona;
