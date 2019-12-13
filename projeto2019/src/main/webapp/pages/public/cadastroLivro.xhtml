@@ -10,9 +10,26 @@
 </h:head>
 <h:body>
 	<p:messages />
-
+	<h:form id="formLogout" rendered="#{usuarioBean.userLogin != ''}">
+		<p:menubar>
+			<f:facet name="options">
+						Olá, #{usuarioBean.userLogin}
+						<p:commandButton id="menuItemLogout" value="Logout"
+					icon="fa fa-fw fa-sign-out" action="#{usuarioBean.efetuarLogout}"
+					ajax="false" />
+			</f:facet>
+		</p:menubar>
+	</h:form>
+	<h:form id="formlogin" rendered="#{usuarioBean.userLogin == ''}">
+		<p:menubar>
+			<f:facet name="options">
+				<p:commandButton id="menuItemLogout" value="Login" />
+			</f:facet>
+		</p:menubar>
+	</h:form>
 	<h:form id="form1" enctype="multipart/form-data">
-		<p:panelGrid columns="2">
+		<p:panelGrid columns="2"
+			rendered="#{usuarioBean.isUserInRole('admin')}">
 			<f:facet name="caption">
 				<h:outputText value="Filtros" />
 			</f:facet>
@@ -67,24 +84,33 @@
 				<h:outputText value="#{entidade.sinopse}" />
 			</p:column>
 			<p:column>
-				<f:facet name="header">Foto</f:facet>
-				<p:graphicImage id="photo" height="80" stream="true" value="#{livroBean.getStreamedImageById()}" cache="FALSE" >
-					<f:attribute name="item_img_id" value="#{entidade.id}"/>
+				<f:facet name="header">Capa</f:facet>
+				<p:graphicImage id="photo" height="80" stream="true"
+					value="#{livroBean.getStreamedImageById(entidade.id)}"
+					cache="FALSE">
 				</p:graphicImage>
+
 			</p:column>
 			<p:column>
 				<f:facet name="header">Autor</f:facet>
 				<h:outputText value="#{entidade.autor}" />
 			</p:column>
 
-			<p:column>
+			<p:column rendered="#{usuarioBean.isUserInRole('admin')}">
 				<f:facet name="header">Opções</f:facet>
 				<p:commandButton value="Remover" ajax="false"
 					action="#{livroBean.remove(entidade)}"></p:commandButton>
 				<p:commandButton value="Editar" ajax="false"
 					action="#{livroBean.editar(entidade.id)}"></p:commandButton>
+			</p:column>
+			<p:column rendered="#{usuarioBean.isUserInRole('leitor')}" width="300">
+				<f:facet name="header">Opções</f:facet>
+				<p:panelGrid columns="2">
+				<p:outputLabel value="Lido: " for="lidoField" />
+				<p:selectBooleanCheckbox id="lidoField"></p:selectBooleanCheckbox>
 				<p:outputLabel value="avaliar: " for="livroField" />
-                <p:rating id="livroField" stars="5" ></p:rating>
+				<p:rating id="livroField" stars="5"></p:rating>
+				</p:panelGrid>
 			</p:column>
 		</p:dataTable>
 	</h:form>

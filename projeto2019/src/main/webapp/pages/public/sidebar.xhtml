@@ -5,29 +5,47 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:body>
+	<p:dialog header="Login" widgetVar="dlg" resizable="false">
+		<p:panel>
+			<h:form id="formLogin" prependId="false"
+				onsubmit="action='j_security_check';">
+
+				<h:panelGrid columns="2" style="text-align:center; margin: auto;">
+					<h:outputLabel for="j_username" value="Login:" />
+					<h:inputText id="j_username" />
+
+					<h:outputLabel for="j_password" value="Senha:" />
+					<h:inputSecret id="j_password" />
+					<p:commandButton id="btnLogin" value="Login" />
+				</h:panelGrid>
+			</h:form>
+		</p:panel>
+	</p:dialog>
 	<p>
-		<img
-			src="../PNG/Match Literário.PNG" width="229" height="210" alt="logo" />
+		<img src="../PNG/Match Literário.PNG" width="229" height="210"
+			alt="logo" />
 	</p>
 	<p>
-		<a href="./Livros.xhtml"><img src="../PNG/livros.png"
-			width="190"  alt="Livro" /></a>
+		<a href="./Livros.xhtml"><img src="../PNG/livros.png" width="190"
+			alt="Livro" /></a>
 	</p>
 	<p>
-		<a href="./loginsenha.xhtml"> <img src="../PNG/logincadastro.png"
-			width="190"  alt="logo" /></a>
+		<h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();"
+			title="login">
+			<img src="../PNG/logincadastro.png" width="190" alt="logo" />
+		</h:outputLink>
 	</p>
 	<p>
-		<a href="./Inicial.xhtml"> <img src="../PNG/ssss.png"
-			width="190"  alt="PaginaInicial" /></a>
+		<a href="./Inicial.xhtml"> <img src="../PNG/ssss.png" width="190"
+			alt="PaginaInicial" /></a>
 	</p>
 	<p>
 		<a href="./comofunciona.xhtml"><img src="../PNG/aaaa.png"
-			width="190"  alt="ComoFunciona" /></a>
+			width="190" alt="ComoFunciona" /></a>
 	</p>
 	<p>
 		<a href="./quemsomos.xhtml"> <img src="../PNG/qs.png" width="194"
-			 alt="QuemSomos" />
+			alt="QuemSomos" />
 		</a>
 	</p>
 </h:body>

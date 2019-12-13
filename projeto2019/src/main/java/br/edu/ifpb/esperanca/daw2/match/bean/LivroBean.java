@@ -85,14 +85,9 @@ public class LivroBean implements Serializable {
 		entidades = (Collection<Livro>) getService().getAll();
 	}
 
-	public StreamedContent getStreamedImageById() throws FileNotFoundException {
-		FacesContext context = FacesContext.getCurrentInstance();
-		String string = context.getExternalContext().getRequestParameterMap().get("item_img_id");
-		if(string == null) return new DefaultStreamedContent();
-		Long id = Long.parseLong(string);
-
-//		if (id == null)
-//			id = 3l;
+	public StreamedContent getStreamedImageById(Long id) throws FileNotFoundException {
+		if (id == null)
+			id = 3l;
 		File file = new File("C:\\Users\\Aluno\\git\\Projeto20192\\projeto2019\\src\\main\\webapp\\capas", id + ".PNG");
 		FileInputStream in = new FileInputStream(file);
 		return new DefaultStreamedContent(in, "image/png");
